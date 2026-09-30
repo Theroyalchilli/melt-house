@@ -1,29 +1,28 @@
 import type { SiteMeta, Theme } from "@/lib/site";
 
-// Settings for THIS site: Melt Theory, a (concept) handcrafted ice-cream brand from Hyderabad. Direction: site/DESIGN.md.
+// Melt House: Late-night desserts, gelato and coffee in Hounslow
+// Premium dark luxury theme with warm caramel accents
 
 export const meta: SiteMeta = {
-  name: "Melt Theory",
-  title: "Melt Theory — Small batch. Big feelings.",
-  description: "Hand-churned, small-batch ice cream from Hyderabad. Pistachio malai, Alphonso mango, double ka meetha and more, in scoops, sundaes and family tubs.",
-  loaderText: "MELT THEORY",
-  loader: false, // site/components/ScoopLoader.tsx replaces the engine loader
-  // ?record=1 uses the section timeline (data-record-* attributes on the sections, docs/RECORDING.md): 37 s + the 2.5 s loader.
-  // duration is only the fallback for constant-speed mode.
-  record: { duration: 37 },
+  name: "Melt House",
+  title: "Melt House — Late-night desserts & coffee",
+  description: "Premium hand-crafted desserts, gelato and artisan coffee in Hounslow. Open late for sweet cravings. 45 Kingsley Rd.",
+  loaderText: "MELT HOUSE",
+  loader: false,
+  record: { duration: 40 },
 };
 
 export const theme: Theme = {
-  bg: "#fff1f4",
-  surface: "#ffffff",
-  text: "#2b1233",
-  muted: "#6f5569",
-  accent: "#d61c5d",
+  bg: "#120d0b",
+  surface: "#1c1512",
+  text: "#f7f0eb",
+  muted: "#d3b9a8",
+  accent: "#d98f5c",
   accentText: "#ffffff",
-  line: "#f4d3dd",
-  fontDisplay: "'Fredoka Variable', 'Fredoka', system-ui, sans-serif",
-  fontBody: "'Nunito Variable', 'Nunito', system-ui, sans-serif",
+  line: "rgba(255, 255, 255, 0.12)",
+  fontDisplay: "'Cormorant Garamond', serif",
+  fontBody: "'Manrope', sans-serif",
   radius: 999,
   uppercaseHeadings: false,
-  heroText: "#2b1233",
+  heroText: "#f7f0eb",
 };
