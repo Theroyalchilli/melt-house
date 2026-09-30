@@ -1,4 +1,4 @@
-// All text + data for Melt House. Prices are samples (it's a concept site).
+// All text + data for Melt House. Prices in GBP.
 // Photos: `photo` is empty until the real image is in public/images/melt/; the <Photo> placeholder shows `tone` + `hint` meanwhile.
 
 export const STUDIO = "Melt House";
@@ -30,12 +30,12 @@ export const nav = {
 
 export const hero = {
   word: "MELT",
-  pill: { label: "Flavour of the week", value: "Double ka Meetha" },
-  heading: ["Small batch.", "*Big* feelings."],
-  text: "Hand-churned in Hyderabad every morning, never more than 20 litres at a time. Real fruit, real milk, no shortcuts.",
+  pill: { label: "Flavour of the week", value: "Salted Caramel Cheesecake" },
+  heading: ["Late-night desserts", "*&* gelato"],
+  text: "Hand-crafted desserts, premium gelato and artisan coffee. Open late, always fresh, always indulgent.",
   ctas: [
-    { label: "Pick your scoop", href: "#flavours" },
-    { label: "Find a parlour", href: "#parlours" },
+    { label: "Explore menu", href: "#flavours" },
+    { label: "Visit us", href: "#parlours" },
   ],
   cone: "/images/melt/cone-hero.webp",
   toppings: [
@@ -47,8 +47,8 @@ export const hero = {
 };
 
 export const wave = {
-  top: ["Pistachio Malai", "Alphonso Mango", "Filter Coffee", "Double ka Meetha", "Sitaphal", "Belgian Cocoa"],
-  bottom: ["Hand-churned daily", "Small batch", "Made in Hyderabad", "No shortcuts"],
+  top: ["Salted Caramel", "Brownie Melt", "Hazelnut Mocha", "Strawberry Bliss", "Belgian Cocoa", "Premium Gelato"],
+  bottom: ["Hand-crafted daily", "Premium quality", "Made in Hounslow", "Late-night hours"],
 };
 
 export type Flavour = {
@@ -63,18 +63,18 @@ export type Flavour = {
 };
 
 export const flavours: Flavour[] = [
-  { id: "pistachio", name: "Pistachio Malai", note: "Roasted pistachios folded into slow-cooked malai", price: 140, tag: "Bestseller", fill: FLAVOUR.pistachio, ink: "#2b1233", image: "/images/melt/scoop-pistachio.webp" },
-  { id: "mango", name: "Alphonso Mango", note: "Ratnagiri Alphonsos, only while the season lasts", price: 140, tag: "Seasonal", fill: FLAVOUR.mango, ink: "#2b1233", image: "/images/melt/scoop-mango.webp" },
-  { id: "strawberry", name: "Strawberry Cream", note: "Fresh berries with a ripple of homemade jam", price: 140, tag: "Kids' pick", fill: FLAVOUR.strawberry, ink: "#2b1233", image: "/images/melt/scoop-strawberry.webp" },
-  { id: "coffee", name: "Filter Coffee", note: "Real decoction, a little jaggery, very Hyderabad", price: 150, tag: "New", fill: FLAVOUR.coffee, ink: "#2b1233", image: "/images/melt/scoop-coffee.webp" },
-  { id: "cocoa", name: "Belgian Cocoa", note: "70% dark chocolate with fudgy chunks", price: 160, tag: "Vegan", fill: FLAVOUR.cocoa, ink: "#fff1e6", image: "/images/melt/scoop-cocoa.webp" },
-  { id: "meetha", name: "Double ka Meetha", note: "Saffron cream, caramelised bread, toasted almonds", price: 160, tag: "Only here", fill: FLAVOUR.meetha, ink: "#2b1233", image: "/images/melt/scoop-meetha.webp" },
+  { id: "pistachio", name: "Salted Caramel Cheesecake", note: "Silky vanilla bean cheesecake with salted caramel finish", price: 8.50, tag: "Bestseller", fill: FLAVOUR.pistachio, ink: "#2b1233", image: "/images/melt/scoop-pistachio.webp" },
+  { id: "mango", name: "Brownie Sundae Melt", note: "Warm chocolate brownie, vanilla gelato, hot fudge drizzle", price: 9.00, tag: "Late-night pick", fill: FLAVOUR.mango, ink: "#2b1233", image: "/images/melt/scoop-mango.webp" },
+  { id: "strawberry", name: "Strawberry Cream", note: "Fresh berries with homemade jam ripple", price: 7.80, tag: "Fresh daily", fill: FLAVOUR.strawberry, ink: "#2b1233", image: "/images/melt/scoop-strawberry.webp" },
+  { id: "coffee", name: "Hazelnut Mocha", note: "Dark chocolate mocha with hazelnut and creamy cocoa foam", price: 4.70, tag: "Coffee lover", fill: FLAVOUR.coffee, ink: "#2b1233", image: "/images/melt/scoop-coffee.webp" },
+  { id: "cocoa", name: "Belgian Cocoa", note: "70% dark chocolate with fudgy chunks", price: 8.00, tag: "Premium", fill: FLAVOUR.cocoa, ink: "#fff1e6", image: "/images/melt/scoop-cocoa.webp" },
+  { id: "meetha", name: "Vanilla Gelato", note: "Classic creamy indulgence", price: 7.50, tag: "Timeless", fill: FLAVOUR.meetha, ink: "#2b1233", image: "/images/melt/scoop-meetha.webp" },
 ];
 
 export const shelf = {
   eyebrow: "Today's counter",
   heading: ["Today's", "*scoops*"],
-  text: "Six flavours on the counter today. Churned this morning, gone by tonight.",
+  text: "Six flavours on the counter today. Fresh gelato and desserts made daily.",
   unit: "/ scoop",
 };
 
@@ -117,24 +117,24 @@ export const treats = {
   eyebrow: "The menu",
   heading: ["Pick a", "*treat*"],
   items: [
-    { name: "Scoops", count: "12 flavours", tone: FLAVOUR.strawberry, hint: "Scoops in a cup", photo: "/images/melt/cat-scoops.webp" },
+    { name: "Scoops", count: "6 flavours", tone: FLAVOUR.strawberry, hint: "Scoops in a cup", photo: "/images/melt/cat-scoops.webp" },
     { name: "Sundaes", count: "8 sundaes", tone: FLAVOUR.mango, hint: "Sundae glass", photo: "/images/melt/cat-sundae.webp" },
     { name: "Family tubs", count: "500 ml · 1 L", tone: FLAVOUR.pistachio, hint: "Tub, top-down", photo: "/images/melt/cat-tub.webp" },
     { name: "Thick shakes", count: "6 shakes", tone: FLAVOUR.coffee, hint: "Milkshake", photo: "/images/melt/cat-shake.webp" },
     { name: "Ice-cream cakes", count: "Order 24 h ahead", tone: FLAVOUR.blueberry, hint: "Ice-cream cake", photo: "/images/melt/cat-cake.webp" },
-    { name: "Kulfi", count: "4 kinds", tone: FLAVOUR.meetha, hint: "Kulfi sticks", photo: "/images/melt/cat-kulfi.webp" },
+    { name: "Coffee", count: "Artisan coffee", tone: FLAVOUR.meetha, hint: "Coffee cup", photo: "/images/melt/cat-kulfi.webp" },
   ],
 };
 
 export const deals = {
   eyebrow: "Sweet deals",
   heading: ["Treat", "*everyone*"],
-  text: "Something for the whole family, the date night and the 4 PM craving. At every parlour.",
+  text: "Something for dessert lovers and late-night cravings. At Melt House.",
   items: [
-    { id: "family", title: "Family tub night", text: "4 tubs of 500 ml, any flavours. Enough for everyone (maybe).", price: "₹999", was: "₹1,240", badge: "Every Sunday", tone: FLAVOUR.pistachio, hint: "Perfect trio" },
-    { id: "date", title: "Date-night sundae for two", text: "Two spoons, three scoops, warm brownie, hot fudge.", price: "₹449", badge: "After 7 PM", tone: FLAVOUR.strawberry, hint: "Sundae for two" },
-    { id: "happy", title: "Second scoop free", text: "Every day between 4 and 6 PM.", price: "4–6 PM", badge: "Happy hour", tone: FLAVOUR.cocoa, hint: "" },
-    { id: "cake", title: "Birthday cakes", text: "Any flavour as a cake. Order 24 hours ahead.", price: "from ₹1,199", badge: "Made to order", tone: FLAVOUR.blueberry, hint: "" },
+    { id: "family", title: "Family tub night", text: "4 tubs of 500 ml, any flavours. Enough for everyone (maybe).", price: "£19.99", was: "£24.50", badge: "Weekdays", tone: FLAVOUR.pistachio, hint: "Perfect trio" },
+    { id: "date", title: "Date-night sundae for two", text: "Two spoons, three scoops, warm brownie, hot fudge.", price: "£15.99", badge: "After 7 PM", tone: FLAVOUR.strawberry, hint: "Sundae for two" },
+    { id: "happy", title: "Happy hour", text: "Second scoop free. Every day 4–6 PM.", price: "4–6 PM", badge: "Daily", tone: FLAVOUR.cocoa, hint: "" },
+    { id: "late", title: "Late-night craving", text: "Any dessert with hot drink. Open till 11:30 PM.", price: "from £8.99", badge: "Every night", tone: FLAVOUR.blueberry, hint: "" },
   ],
 };
 
@@ -142,22 +142,20 @@ export const notes = {
   eyebrow: "Love notes",
   heading: ["Sticky *fingers*,", "happy hearts"],
   items: [
-    { name: "Ananya & friends", where: "Gachibowli", text: "We came for one scoop. We left with a tub each.", rating: 5, tone: FLAVOUR.mango, hint: "Friends with cones", photo: "/images/melt/note-friends.webp" },
-    { name: "Meher, age 7", where: "Jubilee Hills", text: "Strawberry is the best colour AND the best flavour.", rating: 5, tone: FLAVOUR.strawberry, hint: "Kid with a scoop", photo: "/images/melt/note-kid.webp" },
-    { name: "Rahul & Sana", where: "Banjara Hills", text: "Our Friday date is now a Melt House date.", rating: 5, tone: FLAVOUR.coffee, hint: "Couple at night", photo: "/images/melt/note-couple.webp" },
-    { name: "The Reddys", where: "Jubilee Hills", text: "Double ka meetha as ice cream. Nani approved.", rating: 5, tone: FLAVOUR.pistachio, hint: "Family on a bench", photo: "/images/melt/note-family.webp" },
+    { name: "Ananya & friends", where: "Hounslow", text: "We came for one scoop. We left with a tub each.", rating: 5, tone: FLAVOUR.mango, hint: "Friends with cones", photo: "/images/melt/note-friends.webp" },
+    { name: "Meher, age 7", where: "Hounslow", text: "Strawberry is the best colour AND the best flavour.", rating: 5, tone: FLAVOUR.strawberry, hint: "Kid with a scoop", photo: "/images/melt/note-kid.webp" },
+    { name: "Rahul & Sana", where: "Hounslow", text: "Our Friday date is now a Melt House date.", rating: 5, tone: FLAVOUR.coffee, hint: "Couple at night", photo: "/images/melt/note-couple.webp" },
+    { name: "The Reddys", where: "Hounslow", text: "Late-night indulgence after work. Perfection.", rating: 5, tone: FLAVOUR.pistachio, hint: "Family on a bench", photo: "/images/melt/note-family.webp" },
   ],
 };
 
 export const parlours = {
   eyebrow: "Our parlours",
   heading: ["Come say", "*hi*"],
-  text: "Three pink parlours across Hyderabad. Walk in, sample everything, take your time.",
+  text: "One premium location in Hounslow. Walk in anytime.",
   photo: { photo: "/images/melt/parlour.webp", tone: FLAVOUR.pistachio, hint: "Parlour interior" },
   items: [
-    { name: "Jubilee Hills", note: "The first one. Garden seating.", hours: "12 PM – 11 PM", late: "Till midnight Fri–Sun" },
-    { name: "Gachibowli", note: "Near the offices. Fast queue.", hours: "11 AM – 11 PM", late: "Happy hour 4–6 PM" },
-    { name: "Banjara Hills", note: "The big one. Cake counter inside.", hours: "12 PM – 12 AM", late: "Open late every day" },
+    { name: "Hounslow", note: "45 Kingsley Rd, TW3 1PA", hours: "10:00 AM – 11:30 PM", late: "Late-night desserts daily" },
   ],
 };
 
@@ -170,8 +168,8 @@ export const footer = {
   },
   columns: [
     { title: "Eat", links: ["Flavours", "Sundaes", "Family tubs", "Cakes"] },
-    { title: "Visit", links: ["Jubilee Hills", "Gachibowli", "Banjara Hills"] },
-    { title: "Hello", links: ["Instagram", "Parties & events", "Careers"] },
+    { title: "Visit", links: ["Hounslow", "Hours", "Directions"] },
+    { title: "Hello", links: ["Instagram @melthouse", "WhatsApp Order", "Call 07824 063148"] },
   ],
-  note: `Concept website by ${STUDIO}. Melt House is a design concept; flavours and prices are samples.`,
+  note: `Melt House is a design concept; flavours and prices are samples.`,
 };
