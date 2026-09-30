@@ -83,7 +83,7 @@ export default function MeltFooter() {
       </div>
 
       {/* the melting wordmark */}
-      <p aria-hidden className="font-display mt-12 flex flex-wrap justify-center gap-x-[0.25em] px-3 pb-[0.42em] text-center text-[22vw] leading-[0.9] font-bold tracking-[-0.02em] select-none md:mt-10 md:flex-nowrap md:text-[13.6vw]">
+      <p aria-hidden className="font-display mt-12 flex flex-wrap justify-center gap-x-[0.25em] px-3 pb-[0.42em] text-center text-[22vw] leading-[0.9] font-bold tracking-[-0.02em] select-none md:mt-16 md:pb-[0.5em]">
         {footer.word.split(" ").map((w) => (
           <span key={w} className="whitespace-nowrap">
             {w.split("").map((ch) => {
@@ -95,7 +95,7 @@ export default function MeltFooter() {
                   {drip && (
                     <span
                       data-len={`${drip[2]}em`}
-                      className="word-drip absolute top-[80%] w-[0.1em] -translate-x-1/2 rounded-b-full bg-[#fff1f4] after:absolute after:bottom-[-0.03em] after:left-1/2 after:h-[0.15em] after:w-[0.15em] after:-translate-x-1/2 after:rounded-full after:bg-[#fff1f4] after:content-['']"
+                      className="word-drip absolute top-[80%] w-[0.1em] -translate-x-1/2 rounded-b-full bg-[#fff1f4] after:absolute after:bottom-[-0.03em] after:left-1/2 after:h-[0.15em] after:w-[0.35em] after:rounded-full after:bg-[#fff1f4]"
                       style={{ left: `${drip[1]}%`, height: `${drip[2]}em` }}
                     />
                   )}
@@ -108,7 +108,7 @@ export default function MeltFooter() {
 
       <div className="container-x flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-white/25 py-4 text-[12px] font-semibold md:py-5 md:text-[13px]">
         <p className="flex items-center gap-2">
-          <ScoopMark className="h-4 w-auto text-white" />© 2026 Melt Theory (concept)
+          <ScoopMark className="h-4 w-auto text-white" />© 2026 Melt House
         </p>
         <p className="opacity-90">{footer.note}</p>
       </div>
