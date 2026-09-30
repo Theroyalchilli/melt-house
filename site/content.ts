@@ -95,7 +95,7 @@ export const builder = {
 export const slow = {
   eyebrow: "How it's made",
   heading: ["Made the", "*slow* way"],
-  text: "No premix, no powder. Milk comes in at 6 AM and the first batch is on the counter by noon.",
+  text: "Fresh desserts, premium gelato and artisan coffee—made to order and served late at Melt House.",
   frames: "/frames/melt-pour",
   alt: "Warm chocolate poured over a vanilla scoop, topped with pistachios",
   panel: "linear-gradient(180deg, #e2c4c6, #ebd7dd)", // the video's own background, so the panel and the video blend
