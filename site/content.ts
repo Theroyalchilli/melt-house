@@ -114,20 +114,23 @@ export const slow = {
   ],
 };
 
-export type MenuItem = { id: string; name: string; note: string; price: number; tag?: string; tone: string; hint: string };
+export type MenuItem = { id: string; name: string; note: string; price: number; tag?: string; tone: string; hint: string; photo?: string };
 
+// Menu photos are hot-linked from Unsplash (free-to-use, no attribution required under the
+// Unsplash License: https://unsplash.com/license). Each URL is a stable `images.unsplash.com/photo-<id>`
+// asset — no API key or download step needed, and no local WebP copy is stored in public/images/melt/.
 export const coffees = {
   eyebrow: "Artisan coffee",
   heading: ["Premium", "*brews*"],
   text: "Hand-pulled espresso shots, specialty lattes, and signature hot drinks.",
   unit: "/ cup",
   items: [
-    { id: "espresso", name: "Double Espresso", note: "Rich, bold, perfectly pulled", price: 3.50, tag: "Classic", tone: FLAVOUR.coffee, hint: "Espresso cup" },
-    { id: "latte", name: "Hazelnut Latte", note: "Silky milk with hazelnut and espresso", price: 4.50, tag: "Bestseller", tone: FLAVOUR.meetha, hint: "Latte in a glass" },
-    { id: "cappuccino", name: "Cappuccino", note: "Creamy foam and rich espresso blend", price: 4.20, tag: "Popular", tone: FLAVOUR.coffee, hint: "Cappuccino cup" },
-    { id: "mocha", name: "Chocolate Mocha", note: "Espresso, steamed milk, chocolate", price: 4.80, tag: "Decadent", tone: FLAVOUR.cocoa, hint: "Mocha with cream" },
-    { id: "cortado", name: "Cortado", note: "Equal parts espresso and steamed milk", price: 3.80, tag: "Smooth", tone: FLAVOUR.mango, hint: "Cortado glass" },
-    { id: "macchiato", name: "Macchiato", note: "Espresso marked with milk foam", price: 4.10, tag: "Light", tone: FLAVOUR.pistachio, hint: "Macchiato cup" },
+    { id: "espresso", name: "Double Espresso", note: "Rich, bold, perfectly pulled", price: 3.50, tag: "Classic", tone: FLAVOUR.coffee, hint: "Espresso cup", photo: "https://images.unsplash.com/photo-1595928642581-f50f4f3453a5?auto=format&fit=crop&w=1200&q=80" },
+    { id: "latte", name: "Hazelnut Latte", note: "Silky milk with hazelnut and espresso", price: 4.50, tag: "Bestseller", tone: FLAVOUR.meetha, hint: "Latte in a glass", photo: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=1200&q=80" },
+    { id: "cappuccino", name: "Cappuccino", note: "Creamy foam and rich espresso blend", price: 4.20, tag: "Popular", tone: FLAVOUR.coffee, hint: "Cappuccino cup", photo: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=1200&q=80" },
+    { id: "mocha", name: "Chocolate Mocha", note: "Espresso, steamed milk, chocolate", price: 4.80, tag: "Decadent", tone: FLAVOUR.cocoa, hint: "Mocha with cream", photo: "https://images.unsplash.com/photo-1632845407875-10b4d85e6bf8?auto=format&fit=crop&w=1200&q=80" },
+    { id: "cortado", name: "Cortado", note: "Equal parts espresso and steamed milk", price: 3.80, tag: "Smooth", tone: FLAVOUR.mango, hint: "Cortado glass", photo: "https://images.unsplash.com/photo-1534687941688-651ccaafbff8?auto=format&fit=crop&w=1200&q=80" },
+    { id: "macchiato", name: "Macchiato", note: "Espresso marked with milk foam", price: 4.10, tag: "Light", tone: FLAVOUR.pistachio, hint: "Macchiato cup", photo: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=1200&q=80" },
   ] satisfies MenuItem[],
 };
 
@@ -137,12 +140,12 @@ export const sundaes = {
   text: "Hand-scooped gelato on warm desserts with hot toppings and syrups.",
   unit: "/ sundae",
   items: [
-    { id: "brownie", name: "Warm Brownie Sundae", note: "Hot brownie, vanilla gelato, fudge sauce", price: 8.50, tag: "Classic", tone: FLAVOUR.cocoa, hint: "Brownie sundae" },
-    { id: "waffle", name: "Belgian Waffle", note: "Crispy waffle, three scoops, caramel drizzle", price: 9.50, tag: "Indulgent", tone: FLAVOUR.mango, hint: "Waffle with scoops" },
-    { id: "pancake", name: "Warm Pancakes", note: "Fluffy stack with gelato and berry compote", price: 8.00, tag: "Popular", tone: FLAVOUR.strawberry, hint: "Pancake stack" },
-    { id: "chocolate", name: "Chocolate Lava", note: "Molten chocolate cake, vanilla ice cream", price: 9.00, tag: "Rich", tone: FLAVOUR.cocoa, hint: "Lava cake" },
-    { id: "pistachio", name: "Pistachio Dream", note: "Pistachio gelato, hazelnut praline, whipped cream", price: 8.80, tag: "Premium", tone: FLAVOUR.pistachio, hint: "Pistachio sundae" },
-    { id: "strawberry", name: "Strawberry Romance", note: "Fresh strawberries, vanilla gelato, raspberry sauce", price: 8.20, tag: "Fresh", tone: FLAVOUR.strawberry, hint: "Strawberry sundae" },
+    { id: "brownie", name: "Warm Brownie Sundae", note: "Hot brownie, vanilla gelato, fudge sauce", price: 8.50, tag: "Classic", tone: FLAVOUR.cocoa, hint: "Brownie sundae", photo: "https://images.unsplash.com/photo-1606313564200-e75d5e30476a?auto=format&fit=crop&w=1200&q=80" },
+    { id: "waffle", name: "Belgian Waffle", note: "Crispy waffle, three scoops, caramel drizzle", price: 9.50, tag: "Indulgent", tone: FLAVOUR.mango, hint: "Waffle with scoops", photo: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=1200&q=80" },
+    { id: "pancake", name: "Warm Pancakes", note: "Fluffy stack with gelato and berry compote", price: 8.00, tag: "Popular", tone: FLAVOUR.strawberry, hint: "Pancake stack", photo: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=1200&q=80" },
+    { id: "chocolate", name: "Chocolate Lava", note: "Molten chocolate cake, vanilla ice cream", price: 9.00, tag: "Rich", tone: FLAVOUR.cocoa, hint: "Lava cake", photo: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=1200&q=80" },
+    { id: "pistachio", name: "Pistachio Dream", note: "Pistachio gelato, hazelnut praline, whipped cream", price: 8.80, tag: "Premium", tone: FLAVOUR.pistachio, hint: "Pistachio sundae", photo: "https://images.unsplash.com/photo-1557142046-c704a3adf364?auto=format&fit=crop&w=1200&q=80" },
+    { id: "strawberry", name: "Strawberry Romance", note: "Fresh strawberries, vanilla gelato, raspberry sauce", price: 8.20, tag: "Fresh", tone: FLAVOUR.strawberry, hint: "Strawberry sundae", photo: "https://images.unsplash.com/photo-1633933358116-a27b902fad35?auto=format&fit=crop&w=1200&q=80" },
   ] satisfies MenuItem[],
 };
 
@@ -152,12 +155,12 @@ export const shakes = {
   text: "Blended gelato shakes thick enough to eat with a spoon.",
   unit: "/ shake",
   items: [
-    { id: "vanilla", name: "Vanilla Bean Shake", note: "Classic vanilla gelato blend", price: 5.50, tag: "Classic", tone: FLAVOUR.meetha, hint: "Vanilla shake" },
-    { id: "strawberry", name: "Strawberry Shake", note: "Fresh berries and cream gelato", price: 5.80, tag: "Fresh", tone: FLAVOUR.strawberry, hint: "Strawberry shake" },
-    { id: "chocolate", name: "Chocolate Malt Shake", note: "Dark chocolate and malt, extra thick", price: 6.00, tag: "Indulgent", tone: FLAVOUR.cocoa, hint: "Chocolate shake" },
-    { id: "caramel", name: "Salted Caramel Shake", note: "Creamy caramel with sea salt", price: 5.80, tag: "Bestseller", tone: FLAVOUR.pistachio, hint: "Caramel shake" },
-    { id: "hazelnut", name: "Hazelnut Coffee Shake", note: "Espresso and hazelnut gelato", price: 6.20, tag: "Mocha lover", tone: FLAVOUR.coffee, hint: "Hazelnut shake" },
-    { id: "blueberry", name: "Blueberry Cheesecake", note: "Blueberry and cheesecake gelato", price: 6.00, tag: "Premium", tone: FLAVOUR.blueberry, hint: "Blueberry shake" },
+    { id: "vanilla", name: "Vanilla Bean Shake", note: "Classic vanilla gelato blend", price: 5.50, tag: "Classic", tone: FLAVOUR.meetha, hint: "Vanilla shake", photo: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=1200&q=80" },
+    { id: "strawberry", name: "Strawberry Shake", note: "Fresh berries and cream gelato", price: 5.80, tag: "Fresh", tone: FLAVOUR.strawberry, hint: "Strawberry shake", photo: "https://images.unsplash.com/photo-1615478503562-ec2d8aa0e24e?auto=format&fit=crop&w=1200&q=80" },
+    { id: "chocolate", name: "Chocolate Malt Shake", note: "Dark chocolate and malt, extra thick", price: 6.00, tag: "Indulgent", tone: FLAVOUR.cocoa, hint: "Chocolate shake", photo: "https://images.unsplash.com/photo-1586917049334-0f99406d8a6e?auto=format&fit=crop&w=1200&q=80" },
+    { id: "caramel", name: "Salted Caramel Shake", note: "Creamy caramel with sea salt", price: 5.80, tag: "Bestseller", tone: FLAVOUR.pistachio, hint: "Caramel shake", photo: "https://images.unsplash.com/photo-1603903631918-a6b65462fe01?auto=format&fit=crop&w=1200&q=80" },
+    { id: "hazelnut", name: "Hazelnut Coffee Shake", note: "Espresso and hazelnut gelato", price: 6.20, tag: "Mocha lover", tone: FLAVOUR.coffee, hint: "Hazelnut shake", photo: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80" },
+    { id: "blueberry", name: "Blueberry Cheesecake", note: "Blueberry and cheesecake gelato", price: 6.00, tag: "Premium", tone: FLAVOUR.blueberry, hint: "Blueberry shake", photo: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=1200&q=80" },
   ] satisfies MenuItem[],
 };
 

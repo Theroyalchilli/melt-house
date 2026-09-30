@@ -5,7 +5,7 @@ import type { MenuItem } from "../content";
 
 type MenuData = { eyebrow: string; heading: string[]; text: string; unit: string; items: MenuItem[] };
 
-/** MenuMenu → the same rounded-card grid used for Coffee, Sundaes and Shakes: a photo band up top (placeholder until real shots are in), name, note and price below. */
+/** MenuMenu → the same rounded-card grid used for Coffee, Sundaes and Shakes: a photo band up top (falls back to the tone/hint placeholder if an item has no photo), name, note and price below. */
 export default function MenuMenu({
   id,
   data,
@@ -43,7 +43,7 @@ export default function MenuMenu({
           {data.items.map((m) => (
             <article key={m.id} className="flex flex-col overflow-hidden rounded-[28px] bg-white shadow-[var(--soft-shadow)] transition-transform duration-500 hover:-translate-y-2">
               <div className="aspect-[4/3] overflow-hidden">
-                <Photo tone={m.tone} hint={m.hint} alt={m.name} />
+                <Photo photo={m.photo} tone={m.tone} hint={m.hint} alt={m.name} />
               </div>
               <div className="flex flex-1 flex-col p-5 md:p-6">
                 {m.tag && <span className="tag self-start">{m.tag}</span>}
