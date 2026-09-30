@@ -1,28 +1,29 @@
 import type { SiteMeta, Theme } from "@/lib/site";
 
-// Melt House: Late-night desserts, gelato and coffee in Hounslow
-// Premium dark luxury theme with warm caramel accents
+// Settings for THIS site: Melt House, a handcrafted ice-cream brand. Direction: site/DESIGN.md.
 
 export const meta: SiteMeta = {
   name: "Melt House",
-  title: "Melt House — Late-night desserts & coffee",
-  description: "Premium hand-crafted desserts, gelato and artisan coffee in Hounslow. Open late for sweet cravings. 45 Kingsley Rd.",
+  title: "Melt House — Small batch. Big feelings.",
+  description: "Hand-churned, small-batch ice cream. Pistachio malai, Alphonso mango, double ka meetha and more, in scoops, sundaes and family tubs.",
   loaderText: "MELT HOUSE",
-  loader: false,
-  record: { duration: 40 },
+  loader: false, // site/components/ScoopLoader.tsx replaces the engine loader
+  // ?record=1 uses the section timeline (data-record-* attributes on the sections, docs/RECORDING.md): 37 s + the 2.5 s loader.
+  // duration is only the fallback for constant-speed mode.
+  record: { duration: 37 },
 };
 
 export const theme: Theme = {
-  bg: "#120d0b",
-  surface: "#1c1512",
-  text: "#f7f0eb",
-  muted: "#d3b9a8",
-  accent: "#d98f5c",
+  bg: "#fff1f4",
+  surface: "#ffffff",
+  text: "#2b1233",
+  muted: "#6f5569",
+  accent: "#d61c5d",
   accentText: "#ffffff",
-  line: "rgba(255, 255, 255, 0.12)",
-  fontDisplay: "'Cormorant Garamond', serif",
-  fontBody: "'Manrope', sans-serif",
+  line: "#f4d3dd",
+  fontDisplay: "'Fredoka Variable', 'Fredoka', system-ui, sans-serif",
+  fontBody: "'Nunito Variable', 'Nunito', system-ui, sans-serif",
   radius: 999,
   uppercaseHeadings: false,
-  heroText: "#f7f0eb",
+  heroText: "#2b1233",
 };
