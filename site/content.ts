@@ -114,19 +114,21 @@ export const slow = {
   ],
 };
 
+export type MenuItem = { id: string; name: string; note: string; price: number; tag?: string; tone: string; hint: string };
+
 export const coffees = {
   eyebrow: "Artisan coffee",
   heading: ["Premium", "*brews*"],
   text: "Hand-pulled espresso shots, specialty lattes, and signature hot drinks.",
   unit: "/ cup",
   items: [
-    { id: "espresso", name: "Double Espresso", note: "Rich, bold, perfectly pulled", price: 3.50, tag: "Classic", fill: FLAVOUR.coffee, ink: "#2b1233", image: "/images/melt/coffee-espresso.webp" },
-    { id: "latte", name: "Hazelnut Latte", note: "Silky milk with hazelnut and espresso", price: 4.50, tag: "Bestseller", fill: FLAVOUR.meetha, ink: "#2b1233", image: "/images/melt/coffee-latte.webp" },
-    { id: "cappuccino", name: "Cappuccino", note: "Creamy foam and rich espresso blend", price: 4.20, tag: "Popular", fill: FLAVOUR.coffee, ink: "#2b1233", image: "/images/melt/coffee-cappuccino.webp" },
-    { id: "mocha", name: "Chocolate Mocha", note: "Espresso, steamed milk, chocolate", price: 4.80, tag: "Decadent", fill: FLAVOUR.cocoa, ink: "#fff1e6", image: "/images/melt/coffee-mocha.webp" },
-    { id: "cortado", name: "Cortado", note: "Equal parts espresso and steamed milk", price: 3.80, tag: "Smooth", fill: FLAVOUR.mango, ink: "#2b1233", image: "/images/melt/coffee-cortado.webp" },
-    { id: "macchiato", name: "Macchiato", note: "Espresso marked with milk foam", price: 4.10, tag: "Light", fill: FLAVOUR.pistachio, ink: "#2b1233", image: "/images/melt/coffee-macchiato.webp" },
-  ],
+    { id: "espresso", name: "Double Espresso", note: "Rich, bold, perfectly pulled", price: 3.50, tag: "Classic", tone: FLAVOUR.coffee, hint: "Espresso cup" },
+    { id: "latte", name: "Hazelnut Latte", note: "Silky milk with hazelnut and espresso", price: 4.50, tag: "Bestseller", tone: FLAVOUR.meetha, hint: "Latte in a glass" },
+    { id: "cappuccino", name: "Cappuccino", note: "Creamy foam and rich espresso blend", price: 4.20, tag: "Popular", tone: FLAVOUR.coffee, hint: "Cappuccino cup" },
+    { id: "mocha", name: "Chocolate Mocha", note: "Espresso, steamed milk, chocolate", price: 4.80, tag: "Decadent", tone: FLAVOUR.cocoa, hint: "Mocha with cream" },
+    { id: "cortado", name: "Cortado", note: "Equal parts espresso and steamed milk", price: 3.80, tag: "Smooth", tone: FLAVOUR.mango, hint: "Cortado glass" },
+    { id: "macchiato", name: "Macchiato", note: "Espresso marked with milk foam", price: 4.10, tag: "Light", tone: FLAVOUR.pistachio, hint: "Macchiato cup" },
+  ] satisfies MenuItem[],
 };
 
 export const sundaes = {
@@ -135,13 +137,13 @@ export const sundaes = {
   text: "Hand-scooped gelato on warm desserts with hot toppings and syrups.",
   unit: "/ sundae",
   items: [
-    { id: "brownie", name: "Warm Brownie Sundae", note: "Hot brownie, vanilla gelato, fudge sauce", price: 8.50, tag: "Classic", fill: FLAVOUR.cocoa, ink: "#fff1e6", image: "/images/melt/sundae-brownie.webp" },
-    { id: "waffle", name: "Belgian Waffle", note: "Crispy waffle, three scoops, caramel drizzle", price: 9.50, tag: "Indulgent", fill: FLAVOUR.mango, ink: "#2b1233", image: "/images/melt/sundae-waffle.webp" },
-    { id: "pancake", name: "Warm Pancakes", note: "Fluffy stack with gelato and berry compote", price: 8.00, tag: "Popular", fill: FLAVOUR.strawberry, ink: "#2b1233", image: "/images/melt/sundae-pancake.webp" },
-    { id: "chocolate", name: "Chocolate Lava", note: "Molten chocolate cake, vanilla ice cream", price: 9.00, tag: "Rich", fill: FLAVOUR.cocoa, ink: "#fff1e6", image: "/images/melt/sundae-lava.webp" },
-    { id: "pistachio", name: "Pistachio Dream", note: "Pistachio gelato, hazelnut praline, whipped cream", price: 8.80, tag: "Premium", fill: FLAVOUR.pistachio, ink: "#2b1233", image: "/images/melt/sundae-pistachio.webp" },
-    { id: "strawberry", name: "Strawberry Romance", note: "Fresh strawberries, vanilla gelato, raspberry sauce", price: 8.20, tag: "Fresh", fill: FLAVOUR.strawberry, ink: "#2b1233", image: "/images/melt/sundae-strawberry.webp" },
-  ],
+    { id: "brownie", name: "Warm Brownie Sundae", note: "Hot brownie, vanilla gelato, fudge sauce", price: 8.50, tag: "Classic", tone: FLAVOUR.cocoa, hint: "Brownie sundae" },
+    { id: "waffle", name: "Belgian Waffle", note: "Crispy waffle, three scoops, caramel drizzle", price: 9.50, tag: "Indulgent", tone: FLAVOUR.mango, hint: "Waffle with scoops" },
+    { id: "pancake", name: "Warm Pancakes", note: "Fluffy stack with gelato and berry compote", price: 8.00, tag: "Popular", tone: FLAVOUR.strawberry, hint: "Pancake stack" },
+    { id: "chocolate", name: "Chocolate Lava", note: "Molten chocolate cake, vanilla ice cream", price: 9.00, tag: "Rich", tone: FLAVOUR.cocoa, hint: "Lava cake" },
+    { id: "pistachio", name: "Pistachio Dream", note: "Pistachio gelato, hazelnut praline, whipped cream", price: 8.80, tag: "Premium", tone: FLAVOUR.pistachio, hint: "Pistachio sundae" },
+    { id: "strawberry", name: "Strawberry Romance", note: "Fresh strawberries, vanilla gelato, raspberry sauce", price: 8.20, tag: "Fresh", tone: FLAVOUR.strawberry, hint: "Strawberry sundae" },
+  ] satisfies MenuItem[],
 };
 
 export const shakes = {
@@ -150,13 +152,13 @@ export const shakes = {
   text: "Blended gelato shakes thick enough to eat with a spoon.",
   unit: "/ shake",
   items: [
-    { id: "vanilla", name: "Vanilla Bean Shake", note: "Classic vanilla gelato blend", price: 5.50, tag: "Classic", fill: FLAVOUR.meetha, ink: "#2b1233", image: "/images/melt/shake-vanilla.webp" },
-    { id: "strawberry", name: "Strawberry Shake", note: "Fresh berries and cream gelato", price: 5.80, tag: "Fresh", fill: FLAVOUR.strawberry, ink: "#2b1233", image: "/images/melt/shake-strawberry.webp" },
-    { id: "chocolate", name: "Chocolate Malt Shake", note: "Dark chocolate and malt, extra thick", price: 6.00, tag: "Indulgent", fill: FLAVOUR.cocoa, ink: "#fff1e6", image: "/images/melt/shake-chocolate.webp" },
-    { id: "caramel", name: "Salted Caramel Shake", note: "Creamy caramel with sea salt", price: 5.80, tag: "Bestseller", fill: FLAVOUR.pistachio, ink: "#2b1233", image: "/images/melt/shake-caramel.webp" },
-    { id: "hazelnut", name: "Hazelnut Coffee Shake", note: "Espresso and hazelnut gelato", price: 6.20, tag: "Mocha lover", fill: FLAVOUR.coffee, ink: "#2b1233", image: "/images/melt/shake-hazelnut.webp" },
-    { id: "blueberry", name: "Blueberry Cheesecake", note: "Blueberry and cheesecake gelato", price: 6.00, tag: "Premium", fill: FLAVOUR.blueberry, ink: "#ffffff", image: "/images/melt/shake-blueberry.webp" },
-  ],
+    { id: "vanilla", name: "Vanilla Bean Shake", note: "Classic vanilla gelato blend", price: 5.50, tag: "Classic", tone: FLAVOUR.meetha, hint: "Vanilla shake" },
+    { id: "strawberry", name: "Strawberry Shake", note: "Fresh berries and cream gelato", price: 5.80, tag: "Fresh", tone: FLAVOUR.strawberry, hint: "Strawberry shake" },
+    { id: "chocolate", name: "Chocolate Malt Shake", note: "Dark chocolate and malt, extra thick", price: 6.00, tag: "Indulgent", tone: FLAVOUR.cocoa, hint: "Chocolate shake" },
+    { id: "caramel", name: "Salted Caramel Shake", note: "Creamy caramel with sea salt", price: 5.80, tag: "Bestseller", tone: FLAVOUR.pistachio, hint: "Caramel shake" },
+    { id: "hazelnut", name: "Hazelnut Coffee Shake", note: "Espresso and hazelnut gelato", price: 6.20, tag: "Mocha lover", tone: FLAVOUR.coffee, hint: "Hazelnut shake" },
+    { id: "blueberry", name: "Blueberry Cheesecake", note: "Blueberry and cheesecake gelato", price: 6.00, tag: "Premium", tone: FLAVOUR.blueberry, hint: "Blueberry shake" },
+  ] satisfies MenuItem[],
 };
 
 export const treats = {
@@ -165,7 +167,7 @@ export const treats = {
   items: [
     { name: "Scoops", count: "6 flavours", tone: FLAVOUR.strawberry, hint: "Scoops in a cup", photo: "/images/melt/cat-scoops.webp" },
     { name: "Sundaes", count: "6 sundaes", tone: FLAVOUR.mango, hint: "Sundae glass", photo: "/images/melt/cat-sundae.webp" },
-    { name: "Coffee", count: "6 hot drinks", tone: FLAVOUR.coffee, hint: "Coffee cup", photo: "/images/melt/cat-coffee.webp" },
+    { name: "Coffee", count: "6 hot drinks", tone: FLAVOUR.coffee, hint: "Coffee cup" },
     { name: "Thick shakes", count: "6 shakes", tone: FLAVOUR.meetha, hint: "Milkshake", photo: "/images/melt/cat-shake.webp" },
     { name: "Family tubs", count: "500 ml · 1 L", tone: FLAVOUR.pistachio, hint: "Tub, top-down", photo: "/images/melt/cat-tub.webp" },
     { name: "Ice-cream cakes", count: "Order 24 h ahead", tone: FLAVOUR.blueberry, hint: "Ice-cream cake", photo: "/images/melt/cat-cake.webp" },
@@ -177,8 +179,8 @@ export const deals = {
   heading: ["Treat", "*everyone*"],
   text: "Something for dessert lovers and late-night cravings. At Melt House.",
   items: [
-    { id: "family", title: "Family tub night", text: "4 tubs of 500 ml, any flavours. Enough for everyone (maybe).", price: "£19.99", was: "£24.50", badge: "Weekdays", tone: FLAVOUR.pistachio, hint: "Perfect trio" },
-    { id: "date", title: "Date-night sundae for two", text: "Two spoons, three scoops, warm brownie, hot fudge.", price: "£15.99", badge: "After 7 PM", tone: FLAVOUR.strawberry, hint: "Sundae for two" },
+    { id: "family", title: "Family tub night", text: "4 tubs of 500 ml, any flavours. Enough for everyone (maybe).", price: "£19.99", was: "£24.50", badge: "Weekdays", tone: FLAVOUR.pistachio, hint: "Perfect trio", photo: "/images/melt/deal-family.webp" },
+    { id: "date", title: "Date-night sundae for two", text: "Two spoons, three scoops, warm brownie, hot fudge.", price: "£15.99", badge: "After 7 PM", tone: FLAVOUR.strawberry, hint: "Sundae for two", photo: "/images/melt/deal-date.webp" },
     { id: "happy", title: "Happy hour", text: "Second scoop free. Every day 4–6 PM.", price: "4–6 PM", badge: "Daily", tone: FLAVOUR.cocoa, hint: "" },
     { id: "late", title: "Late-night craving", text: "Any dessert with hot drink. Open till 11:30 PM.", price: "from £8.99", badge: "Every night", tone: FLAVOUR.blueberry, hint: "" },
   ],
@@ -188,10 +190,10 @@ export const notes = {
   eyebrow: "Love notes",
   heading: ["Sticky *fingers*,", "happy hearts"],
   items: [
-    { name: "Ananya & friends", where: "Hounslow", text: "We came for one scoop. We left with a tub each.", rating: 5, tone: FLAVOUR.mango, hint: "Friends with cones", photo: "/images/melt/note-friends.webp" },
-    { name: "Meher, age 7", where: "Hounslow", text: "Strawberry is the best colour AND the best flavour.", rating: 5, tone: FLAVOUR.strawberry, hint: "Kid with a scoop", photo: "/images/melt/note-kid.webp" },
-    { name: "Rahul & Sana", where: "Hounslow", text: "Our Friday date is now a Melt House date.", rating: 5, tone: FLAVOUR.coffee, hint: "Couple at night", photo: "/images/melt/note-couple.webp" },
-    { name: "The Reddys", where: "Hounslow", text: "Late-night indulgence after work. Perfection.", rating: 5, tone: FLAVOUR.pistachio, hint: "Family on a bench", photo: "/images/melt/note-family.webp" },
+    { name: "Ananya & friends", where: "Hounslow", text: "We came for one scoop. We left with a tub each.", rating: 5, tone: FLAVOUR.mango, hint: "Friends with cones", photo: "/images/melt/note-friends.webp", tilt: -4 },
+    { name: "Meher, age 7", where: "Hounslow", text: "Strawberry is the best colour AND the best flavour.", rating: 5, tone: FLAVOUR.strawberry, hint: "Kid with a scoop", photo: "/images/melt/note-kid.webp", tilt: 3 },
+    { name: "Rahul & Sana", where: "Hounslow", text: "Our Friday date is now a Melt House date.", rating: 5, tone: FLAVOUR.coffee, hint: "Couple at night", photo: "/images/melt/note-couple.webp", tilt: -3 },
+    { name: "The Reddys", where: "Hounslow", text: "Late-night indulgence after work. Perfection.", rating: 5, tone: FLAVOUR.pistachio, hint: "Family on a bench", photo: "/images/melt/note-family.webp", tilt: 4 },
   ],
 };
 
