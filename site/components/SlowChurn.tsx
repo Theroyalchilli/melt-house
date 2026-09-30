@@ -115,6 +115,7 @@ export default function SlowChurn() {
           },
         });
         tl.set({}, {}, 1);
+        tl.to("[data-description]", { opacity: 0, duration: 0.1, ease: "none" }, 0);
         slow.captions.forEach((c, i) => {
           tl.fromTo(`[data-sticker="${i}"]`, { scale: 0, rotate: -20 }, { scale: 1, rotate: i % 2 ? 6 : -6, duration: 0.08, ease: "power3.out" }, c.at);
         });
@@ -139,7 +140,7 @@ export default function SlowChurn() {
             <div className="relative z-[1] px-6 md:max-w-[40%] md:p-14">
               <p className="eyebrow">{slow.eyebrow}</p>
               <Heading lines={slow.heading} className="mt-4 text-[clamp(42px,5.6vw,100px)] md:mt-5" />
-              <p className="mt-5 hidden max-w-[360px] text-[17px] leading-relaxed text-fg/80 md:block">{slow.text}</p>
+              <p data-description className="mt-5 hidden max-w-[360px] text-[17px] leading-relaxed text-fg/80 md:block">{slow.text}</p>
             </div>
 
             <div className="relative z-[1] mt-5 flex gap-2 px-5 md:static md:mt-0 md:px-0">
