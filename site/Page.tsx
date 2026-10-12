@@ -3,7 +3,7 @@ import ScoopNav from "./components/ScoopNav";
 import MeltHero from "./components/MeltHero";
 import FlavourWave from "./components/FlavourWave";
 import ScoopShelf from "./components/ScoopShelf";
-import MenuMenu from "./components/MenuMenu";
+import CafeMenu from "./components/CafeMenu";
 import ScoopStacker from "./components/ScoopStacker";
 import SlowChurn from "./components/SlowChurn";
 import TreatBubbles from "./components/TreatBubbles";
@@ -11,7 +11,7 @@ import SweetDeals from "./components/SweetDeals";
 import LoveNotes from "./components/LoveNotes";
 import Parlours from "./components/Parlours";
 import MeltFooter from "./components/MeltFooter";
-import { builder, coffees, flavours, shakes, sundaes } from "./content";
+import { builder, flavours } from "./content";
 import { meta } from "./site";
 
 const ICON = `data:image/svg+xml,${encodeURIComponent(
@@ -35,9 +35,7 @@ export default function Page() {
         <MeltHero />
         <FlavourWave />
         <ScoopShelf />
-        <MenuMenu id="coffee" data={coffees} band="var(--surface)" edge="var(--strawberry)" layout={0} />
-        <MenuMenu id="sundaes" data={sundaes} edge="var(--mango)" layout={1} />
-        <MenuMenu id="shakes" data={shakes} band="var(--surface)" edge="var(--blueberry)" layout={2} />
+        <CafeMenu />
         <ScoopStacker />
         <SlowChurn />
         <TreatBubbles />
