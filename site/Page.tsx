@@ -1,24 +1,18 @@
-import ScoopLoader from "./components/ScoopLoader";
-import ScoopNav from "./components/ScoopNav";
-import MeltHero from "./components/MeltHero";
-import FlavourWave from "./components/FlavourWave";
-import ScoopShelf from "./components/ScoopShelf";
-import CafeMenu from "./components/CafeMenu";
-import ScoopStacker from "./components/ScoopStacker";
-import SlowChurn from "./components/SlowChurn";
-import TreatBubbles from "./components/TreatBubbles";
-import SweetDeals from "./components/SweetDeals";
-import LoveNotes from "./components/LoveNotes";
-import Parlours from "./components/Parlours";
-import MeltFooter from "./components/MeltFooter";
-import { builder, flavours } from "./content";
-import { meta } from "./site";
+import CafeLoader from "./components/CafeLoader";
+import CafeNav from "./components/CafeNav";
+import CafeHero from "./components/CafeHero";
+import Signatures from "./components/Signatures";
+import Ticker from "./components/Ticker";
+import MenuIndex from "./components/MenuIndex";
+import GelatoBar from "./components/GelatoBar";
+import ChaiBand from "./components/ChaiBand";
+import Offers from "./components/Offers";
+import ScanToOrder from "./components/ScanToOrder";
+import VisitUs from "./components/VisitUs";
+import CafeFooter from "./components/CafeFooter";
+import { brand } from "./content";
 
-const ICON = `data:image/svg+xml,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#ffc2d4"/><path d="M11.5 16 16 28l4.5-12Z" fill="#e9b170"/><circle cx="16" cy="13" r="7" fill="#d61c5d"/></svg>',
-)}`;
-
-/** Melt Theory: a strawberry-milk parlour that melts. Plan + reasons: site/DESIGN.md. */
+/** Melt House café homepage. Direction: site/DESIGN.md. Ordering lives at /menu (app/menu). */
 export default function Page() {
   return (
     <>
@@ -28,22 +22,20 @@ export default function Page() {
           __html: `history.scrollRestoration="manual";if(/[?&]record/.test(location.search)){var s=document.createElement("style");s.textContent="*,*::before,*::after{cursor:none!important}html{scrollbar-width:none}html::-webkit-scrollbar{display:none}";document.head.appendChild(s)}`,
         }}
       />
-      <link rel="icon" type="image/svg+xml" href={ICON} />
-      <ScoopLoader name={meta.loaderText ?? meta.name} cone={builder.cone} scoop={flavours[2].image} />
-      <ScoopNav />
+      <CafeLoader heart={brand.heart} />
+      <CafeNav />
       <main className="relative z-[1] overflow-x-clip">
-        <MeltHero />
-        <FlavourWave />
-        <ScoopShelf />
-        <CafeMenu />
-        <ScoopStacker />
-        <SlowChurn />
-        <TreatBubbles />
-        <SweetDeals />
-        <LoveNotes />
-        <Parlours />
+        <CafeHero />
+        <Signatures />
+        <Ticker />
+        <MenuIndex />
+        <GelatoBar />
+        <ChaiBand />
+        <Offers />
+        <ScanToOrder />
+        <VisitUs />
       </main>
-      <MeltFooter />
+      <CafeFooter />
     </>
   );
 }

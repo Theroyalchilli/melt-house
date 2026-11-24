@@ -1,4 +1,7 @@
-// Fonts for THIS site: T12 Fredoka (round, chunky headings) + Nunito (body), Caveat for one hand-written word per heading.
-import "@fontsource-variable/fredoka";
-import "@fontsource-variable/nunito";
-import "@fontsource-variable/caveat";
+// Fonts for THIS site: Poppins (headings + UI, like the Melt House sign) + Cormorant Garamond italic (descriptions and accents, like the menu sheet).
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/cormorant-garamond/500-italic.css";
+import "@fontsource/cormorant-garamond/600-italic.css";
