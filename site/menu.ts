@@ -47,7 +47,11 @@ export type Category = {
 
 export type Section = { id: string; name: string; image: string; categories: Category[] };
 
-const img = (n: string) => `/images/melt/menu/${n}.webp`;
+/** HD photos (AI-generated, 1000 px wide, public/images/melt/hd/). Add a name here when its HD photo arrives;
+ *  everything else falls back to the small round crops from the menu sheet (public/images/melt/menu/). */
+export const HD_PHOTOS = new Set(["savouries", "hot-drinks", "desserts"]);
+export const photo = (n: string) => (HD_PHOTOS.has(n) ? `/images/melt/hd/${n}.webp` : `/images/melt/menu/${n}.webp`);
+const img = photo;
 
 const SHOT: Choice = { id: "shot", label: "Shot", options: ["Single shot", "Double shot"], default: "Single shot" };
 const STANDARD_DRINKS = ["Americano (M)", "Cappuccino (M)", "Latte (M)", "Flat White", "Tea (Regular)", "Kadak Chai", "Masala Chai", "Hot Chocolate"];

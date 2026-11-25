@@ -1,12 +1,12 @@
 // All homepage text for Melt House. Prices come from site/menu.ts (the one place prices live).
-import { ORDER, menu, type Item } from "./menu";
+import { ORDER, menu, photo, type Item } from "./menu";
 
 const find = (id: string): Item => {
   for (const s of menu) for (const c of s.categories) for (const i of c.items) if (i.id === id) return i;
   throw new Error(`menu item not found: ${id}`);
 };
 const priceOf = (i: Item) => i.price ?? i.m!;
-const img = (n: string) => `/images/melt/menu/${n}.webp`;
+const img = photo;
 
 export const brand = {
   heart: "/images/melt/brand/heart-cutout.webp",
