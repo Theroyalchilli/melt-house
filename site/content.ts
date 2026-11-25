@@ -50,11 +50,11 @@ export const signatures = {
   kicker: "House signatures",
   heading: ["The ones people", "come *back* for"],
   items: [
-    sig("kunafa-waffle", img("waffles"), "Our signature"),
-    sig("biscoff-crepe", img("crepes"), "Most loved"),
-    sig("kashmiri-chai", img("chai"), "Pink & creamy"),
-    sig("special-cake", img("cakes"), "Chef’s layer cake"),
-    sig("ruby", img("juices"), "Fresh pressed"),
+    sig("kunafa-waffle", img("kunafa-waffle"), "Our signature"),
+    sig("biscoff-crepe", img("biscoff-crepe"), "Most loved"),
+    sig("kashmiri-chai", img("kashmiri-chai"), "Pink & creamy"),
+    sig("special-cake", img("special-cake"), "Chef’s layer cake"),
+    sig("ruby", img("ruby-juice"), "Fresh pressed"),
   ],
 };
 
@@ -68,7 +68,7 @@ export const menuIndex = {
   heading: ["Five ways", "to *melt*"],
   sections: [
     { id: "savouries", name: "Savouries", line: "Toasties · Sandwiches · Wraps · Panini · Combos", image: img("savouries") },
-    { id: "bakery", name: "Bakery & Gelato", line: "Croissants · Muffins · Cinnamon rolls · Gelato", image: img("croissants") },
+    { id: "bakery", name: "Bakery & Gelato", line: "Croissants · Muffins · Cinnamon rolls · Gelato", image: img("bakery") },
     { id: "desserts", name: "Desserts", line: "Crêpes · Belgian waffles · Pancakes · Cakes", image: img("desserts") },
     { id: "hot", name: "Hot Drinks", line: "Coffee · Signature chai · Premium teas", image: img("hot-drinks") },
     { id: "cold", name: "Cold Drinks", line: "Fresh juices · Smoothies · Shakes · Frappés", image: img("cold-drinks") },
@@ -103,7 +103,7 @@ export const chai = {
     const i = find(id);
     return { name: i.name, m: i.m!, l: i.l ?? null };
   }),
-  images: [img("chai"), img("coffee")],
+  images: [img("kashmiri-chai"), img("latte")],
 };
 
 const combosCat = menu[0].categories.find((c) => c.id === "combos")!;

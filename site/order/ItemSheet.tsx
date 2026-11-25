@@ -48,7 +48,7 @@ export default function ItemSheet({ item, cat, size: startSize, onAdd }: Props) 
     <div className="flex max-h-[inherit] flex-col">
       <div className="overflow-y-auto px-5 pt-6 pb-4 md:px-7">
         <div className="flex items-start gap-4">
-          {cat.image && <img src={cat.image} alt="" width={64} height={64} className="mh-round h-16 w-16 shrink-0" />}
+          {(item.image ?? cat.image) && <img src={item.image ?? cat.image} alt="" width={64} height={64} className="mh-round h-16 w-16 shrink-0" />}
           <div>
             <p className="mh-kicker">{cat.name}</p>
             <h2 className="mt-1 text-[22px] leading-tight font-semibold">{fullName(item, cat)}</h2>

@@ -72,8 +72,8 @@ export default function CafeHero() {
 
       {/* four arches: half on the sign wall, half on the cream page below */}
       <div className="container-x absolute inset-x-0 bottom-0 z-[2] translate-y-1/2">
-        {/* capped width: the menu-sheet photos are ~280 px tall, so the arches stay near their real size */}
-        <div className="mx-auto grid max-w-[1000px] grid-cols-4 items-end gap-[clamp(8px,1.6vw,24px)]">
+        {/* HD photos (1000 px), so the arches can be generous */}
+        <div className="mx-auto grid max-w-[1160px] grid-cols-4 items-end gap-[clamp(8px,1.6vw,24px)]">
           {hero.arches.map((a, i) => (
             <div key={a.src} data-h-arch className={`arch arch-line aspect-[4/5] shadow-[0_30px_60px_-28px_rgba(59,36,24,0.55)] ${i % 2 ? "lg:-translate-y-8" : ""}`}>
               <img src={a.src} alt={a.alt} className="h-full w-full object-cover" />

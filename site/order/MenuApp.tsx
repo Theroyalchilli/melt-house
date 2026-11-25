@@ -269,7 +269,7 @@ export default function MenuApp() {
                     {FAVOURITES.map(({ item, cat }) => (
                       <li key={item.id}>
                         <button type="button" className="mh-fav" onClick={() => tap(item, cat)} aria-label={`Add ${fullName(item, cat)}`}>
-                          <img src={cat.image} alt="" width={96} height={96} loading="lazy" className="mh-round mx-auto h-[88px] w-[88px]" />
+                          <img src={item.image ?? cat.image} alt="" width={96} height={96} loading="lazy" className="mh-round mx-auto h-[88px] w-[88px]" />
                           <span className="mt-3 block text-[14px] leading-tight font-semibold">{fullName(item, cat)}</span>
                           <span className="mt-auto flex items-center justify-between gap-1 pt-3">
                             <span className="tnum text-[14px] font-semibold">

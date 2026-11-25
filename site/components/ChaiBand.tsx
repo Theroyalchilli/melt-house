@@ -42,7 +42,7 @@ export default function ChaiBand() {
           </div>
         </div>
 
-        <div className="relative mx-auto aspect-square w-full max-w-[460px]">
+        <div className="relative mx-auto aspect-square w-full max-w-[540px]">
           {/* steam */}
           <svg aria-hidden viewBox="0 0 120 160" className="absolute top-[-4%] left-[22%] z-[3] h-[34%] text-[#b5793a]/45">
             {[20, 55, 90].map((x, i) => (

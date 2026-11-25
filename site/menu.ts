@@ -30,6 +30,8 @@ export type Item = {
   m?: number;
   l?: number | null; // null = no large ("—" on the menu)
   signature?: boolean;
+  /** its own photo (small square), when it has one */
+  image?: string;
   choices?: Choice[];
   extras?: Extra[];
 };
@@ -47,11 +49,16 @@ export type Category = {
 
 export type Section = { id: string; name: string; image: string; categories: Category[] };
 
-/** HD photos (AI-generated, 1000 px wide, public/images/melt/hd/). Add a name here when its HD photo arrives;
- *  everything else falls back to the small round crops from the menu sheet (public/images/melt/menu/). */
-export const HD_PHOTOS = new Set(["savouries", "hot-drinks", "desserts"]);
+/** HD photos (AI-generated, public/images/melt/hd/): <name>.webp (1000 px, big frames) + <name>-sm.webp (360 px square, icons).
+ *  Anything not in HD_PHOTOS falls back to the small round crops from the menu sheet (public/images/melt/menu/). */
+export const HD_PHOTOS = new Set(["savouries", "hot-drinks", "desserts", "cold-drinks", "bakery", "kunafa-waffle", "biscoff-crepe", "kashmiri-chai", "special-cake", "ruby-juice", "latte"]);
+/** big photo (arches, cards) */
 export const photo = (n: string) => (HD_PHOTOS.has(n) ? `/images/melt/hd/${n}.webp` : `/images/melt/menu/${n}.webp`);
-const img = photo;
+/** small square photo (round icons, tabs, banners) */
+export const thumb = (n: string) => (HD_PHOTOS.has(n) ? `/images/melt/hd/${n}-sm.webp` : `/images/melt/menu/${n}.webp`);
+/** always the original menu-sheet crop */
+const crop = (n: string) => `/images/melt/menu/${n}.webp`;
+const img = thumb;
 
 const SHOT: Choice = { id: "shot", label: "Shot", options: ["Single shot", "Double shot"], default: "Single shot" };
 const STANDARD_DRINKS = ["Americano (M)", "Cappuccino (M)", "Latte (M)", "Flat White", "Tea (Regular)", "Kadak Chai", "Masala Chai", "Hot Chocolate"];
@@ -140,13 +147,13 @@ export const menu: Section[] = [
   {
     id: "bakery",
     name: "Bakery & Gelato",
-    image: img("gelato"),
+    image: img("bakery"),
     categories: [
       {
         id: "croissants",
         name: "Croissants",
         blurb: "Fresh, flaky and buttery",
-        image: img("croissants"),
+        image: img("bakery"),
         items: [
           { id: "butter-croissant", name: "Classic Butter Croissant", price: 2.5 },
           { id: "almond-croissant", name: "Almond Croissant", price: 3.5 },
@@ -158,7 +165,7 @@ export const menu: Section[] = [
         id: "bakery-treats",
         name: "Bakery & Treats",
         blurb: "Muffins, pastries and sweet bakes",
-        image: img("bakery"),
+        image: crop("bakery"),
         items: [
           { id: "cinnamon-roll", name: "Cinnamon Roll", price: 3.75 },
           { id: "choc-chip-muffin", name: "Chocolate Chip Muffin", price: 3.25 },
@@ -204,11 +211,11 @@ export const menu: Section[] = [
         id: "crepes",
         name: "Crêpes",
         blurb: "Light, delicate crêpes with delicious fillings",
-        image: img("crepes"),
+        image: img("biscoff-crepe"),
         items: [
           { id: "nutella-crepe", name: "Classic Nutella Crêpe", desc: "Nutella and chocolate drizzle", price: 7.45 },
           { id: "strawberry-banana-crepe", name: "Strawberry & Banana Crêpe", desc: "Fresh strawberries, banana and Belgian chocolate sauce", price: 7.95 },
-          { id: "biscoff-crepe", name: "Lotus Biscoff Crêpe", desc: "Biscoff spread, biscuit crumble and caramel drizzle", price: 8.45 },
+          { id: "biscoff-crepe", name: "Lotus Biscoff Crêpe", desc: "Biscoff spread, biscuit crumble and caramel drizzle", price: 8.45, image: img("biscoff-crepe") },
           { id: "pistachio-crepe", name: "Pistachio Dream Crêpe", desc: "Pistachio cream, white chocolate and crushed pistachios", price: 8.95 },
         ],
       },
@@ -216,12 +223,12 @@ export const menu: Section[] = [
         id: "waffles",
         name: "Belgian Waffles",
         blurb: "Golden and fluffy",
-        image: img("waffles"),
+        image: img("kunafa-waffle"),
         items: [
           { id: "classic-waffle", name: "Classic Belgian Waffle", desc: "Maple-style syrup and a dusting of icing sugar", price: 6.95 },
           { id: "nutella-banana-waffle", name: "Nutella & Banana Waffle", desc: "Banana slices, Nutella and Belgian chocolate drizzle", price: 8.45 },
           { id: "biscoff-waffle", name: "Lotus Biscoff Waffle", desc: "Warm Biscoff spread, biscuit pieces and caramel sauce", price: 8.95 },
-          { id: "kunafa-waffle", name: "Pistachio Kunafa Waffle", desc: "Our signature: pistachio cream, crispy kunafa, white chocolate and crushed pistachios", price: 9.95, signature: true },
+          { id: "kunafa-waffle", name: "Pistachio Kunafa Waffle", desc: "Our signature: pistachio cream, crispy kunafa, white chocolate and crushed pistachios", price: 9.95, signature: true, image: img("kunafa-waffle") },
         ],
       },
       {
@@ -240,14 +247,14 @@ export const menu: Section[] = [
         id: "cakes",
         name: "Cakes & Cheesecakes",
         blurb: "Cakes, cheesecakes and house specials",
-        image: img("cakes"),
+        image: img("special-cake"),
         items: [
           { id: "belgian-chocolate-cake", name: "Belgian Chocolate Cake", desc: "Rich chocolate sponge with chocolate ganache", price: 4.75 },
           { id: "red-velvet-cake", name: "Red Velvet Cake", desc: "Soft sponge with cream cheese frosting", price: 4.45 },
           { id: "biscoff-cheesecake", name: "Lotus Biscoff Cheesecake", desc: "Creamy cheesecake, Biscoff spread and biscuit crumbs", price: 4.95 },
           { id: "carrot-cake", name: "Carrot Cake", desc: "Moist spiced cake with walnuts and cream cheese frosting", price: 4.75 },
           { id: "kunafa-cake", name: "Kunafa Cake", desc: "Crispy kunafa, creamy filling and pistachios", price: 5.25 },
-          { id: "special-cake", name: "Melt House Special Cake", desc: "Our signature layered cake with chocolate, caramel and hazelnut", price: 5.45, signature: true },
+          { id: "special-cake", name: "Melt House Special Cake", desc: "Our signature layered cake with chocolate, caramel and hazelnut", price: 5.45, signature: true, image: img("special-cake") },
         ],
       },
     ],
@@ -261,7 +268,7 @@ export const menu: Section[] = [
         id: "coffee",
         name: "Coffee",
         blurb: "Barista-brewed, rich and smooth",
-        image: img("coffee"),
+        image: img("latte"),
         sizes: true,
         note: "Single or double shot available",
         items: [
@@ -269,7 +276,7 @@ export const menu: Section[] = [
           { id: "americano", name: "Americano", m: 2.75, l: 3.45, choices: [SHOT] },
           { id: "cortado", name: "Cortado", m: 1.95, l: 2.95, choices: [SHOT] },
           { id: "cappuccino", name: "Cappuccino", m: 3.25, l: 3.75, choices: [SHOT] },
-          { id: "latte", name: "Latte", m: 3.25, l: 3.75, choices: [SHOT] },
+          { id: "latte", name: "Latte", m: 3.25, l: 3.75, choices: [SHOT], image: img("latte") },
           { id: "flat-white", name: "Flat White", m: 3.45, l: null, choices: [SHOT] },
           { id: "mocha", name: "Mocha", m: 3.65, l: 4.15, choices: [SHOT] },
           { id: "kadak-coffee", name: "Kadak Coffee", m: 2.95, l: 3.45 },
@@ -279,13 +286,13 @@ export const menu: Section[] = [
         id: "chai",
         name: "Signature Chai",
         blurb: "Authentic, aromatic chai blends",
-        image: img("chai"),
+        image: img("kashmiri-chai"),
         sizes: true,
         note: "Other flavours available, please ask",
         items: [
           { id: "kadak-chai", name: "Kadak Chai", m: 2.45, l: 2.95 },
           { id: "masala-chai", name: "Masala Chai", m: 2.45, l: 2.95 },
-          { id: "kashmiri-chai", name: "Kashmiri Chai", m: 3.95, l: 4.55 },
+          { id: "kashmiri-chai", name: "Kashmiri Chai", m: 3.95, l: 4.55, image: img("kashmiri-chai") },
           { id: "chai-latte", name: "Chai Latte", m: 3.25, l: 3.75 },
         ],
       },
@@ -335,14 +342,14 @@ export const menu: Section[] = [
         id: "juices",
         name: "Fresh Juices",
         blurb: "Freshly pressed and made to order",
-        image: img("juices"),
+        image: img("ruby-juice"),
         items: [
           { id: "orange", name: "Pure Orange", price: 4.45, extras: BOOSTS },
           { id: "sugarcane", name: "Fresh Sugarcane", price: 5.45, extras: BOOSTS },
           { id: "pineapple", name: "Tropical Pineapple", price: 4.95, extras: BOOSTS },
           { id: "abc", name: "ABC", desc: "Apple, beetroot and carrot", price: 5.45, extras: BOOSTS },
           { id: "green-refresh", name: "Green Refresh", desc: "Green apple, cucumber, mint and lime", price: 5.45, extras: BOOSTS },
-          { id: "ruby", name: "Melt House Ruby", desc: "Watermelon, strawberry and mint", price: 5.45, extras: BOOSTS, signature: true },
+          { id: "ruby", name: "Melt House Ruby", desc: "Watermelon, strawberry and mint", price: 5.45, extras: BOOSTS, signature: true, image: img("ruby-juice") },
         ],
       },
       {

@@ -2,7 +2,7 @@ import Lines from "./Lines";
 import { signatures } from "../content";
 import { gbp } from "../menu";
 
-/** House signatures: five paper cards, each with a round gold-ringed photo medallion (like the printed menu), a note, price and a link to order. Phone: swipe row. */
+/** House signatures: five HD photo cards (4:5 photo, note pill, name, italic line, price, order arrow), gently staggered. Phone: swipe row. */
 export default function Signatures() {
   return (
     <section
@@ -28,28 +28,32 @@ export default function Signatures() {
           </a>
         </div>
 
-        <ul data-reveal="stagger" className="no-bar -mx-4 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pt-14 pb-4 md:mt-16 lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-5 lg:overflow-visible lg:px-0">
+        <ul data-reveal="stagger" className="no-bar -mx-4 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mt-16 lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-5 lg:overflow-visible lg:px-0">
           {signatures.items.map((s, i) => (
             <li
               key={s.id}
-              className={`group relative w-[72vw] max-w-[300px] shrink-0 snap-center rounded-[22px] border border-line bg-surface px-6 pt-[86px] pb-6 text-center transition-[transform,box-shadow] duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-30px_rgba(59,36,24,0.45)] lg:w-auto lg:max-w-none ${
-                i % 2 ? "lg:mt-10" : ""
+              className={`group relative flex w-[74vw] max-w-[310px] shrink-0 snap-center flex-col overflow-hidden rounded-[22px] border border-line bg-surface transition-[transform,box-shadow] duration-500 hover:-translate-y-2 hover:shadow-[0_34px_60px_-30px_rgba(59,36,24,0.5)] lg:w-auto lg:max-w-none ${
+                i % 2 ? "lg:mt-12" : ""
               }`}
             >
-              <div className="absolute -top-14 left-1/2 h-[136px] w-[136px] -translate-x-1/2 rounded-full bg-surface p-[5px] shadow-[0_0_0_1px_var(--gold),0_18px_30px_-16px_rgba(59,36,24,0.5)]">
-                <img src={s.image} alt={s.name} className="h-full w-full rounded-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              {/* HD photo, with the note as a pill on top */}
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <img src={s.image} alt={s.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.07]" />
+                <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[rgba(46,27,18,0.35)] to-transparent" />
+                <span className="absolute top-3 left-3 rounded-full bg-surface/90 px-3 py-1.5 text-[12px] font-semibold tracking-[0.14em] text-accent uppercase backdrop-blur">{s.note}</span>
               </div>
-              <p className="text-[12px] font-semibold tracking-[0.24em] text-accent uppercase">{s.note}</p>
-              <h3 className="mt-2.5 text-[19px] leading-snug font-semibold">{s.name}</h3>
-              {s.desc && <p className="serif-i mt-2 line-clamp-3 text-[16.5px] leading-snug text-muted">{s.desc.replace(/^Our signature: (.)/, (_, c: string) => c.toUpperCase())}</p>}
-              <div className="mt-5 flex items-center justify-between border-t border-dashed border-line pt-4">
-                <span className="tnum text-[20px] font-semibold">
-                  {s.sized && <span className="mr-1 text-[12px] font-medium text-muted">from</span>}
-                  {gbp(s.price)}
-                </span>
-                <a href="/menu" aria-label={`Order ${s.name}`} className="grid h-10 w-10 place-items-center rounded-full bg-[var(--cocoa-2)] text-[18px] text-white transition-transform group-hover:rotate-[-45deg]">
-                  →
-                </a>
+              <div className="flex flex-1 flex-col px-5 pt-4 pb-5">
+                <h3 className="text-[18px] leading-snug font-semibold">{s.name}</h3>
+                {s.desc && <p className="serif-i mt-1.5 line-clamp-2 text-[16px] leading-snug text-muted">{s.desc.replace(/^Our signature: (.)/, (_, c: string) => c.toUpperCase())}</p>}
+                <div className="mt-auto flex items-center justify-between pt-4">
+                  <span className="tnum text-[20px] font-semibold">
+                    {s.sized && <span className="mr-1 text-[12px] font-medium text-muted">from</span>}
+                    {gbp(s.price)}
+                  </span>
+                  <a href="/menu" aria-label={`Order ${s.name}`} className="grid h-10 w-10 place-items-center rounded-full bg-[var(--cocoa-2)] text-[18px] text-white transition-transform group-hover:rotate-[-45deg]">
+                    →
+                  </a>
+                </div>
               </div>
             </li>
           ))}
