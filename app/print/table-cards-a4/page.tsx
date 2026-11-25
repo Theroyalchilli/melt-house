@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "Table cards, 4 on A4 — Melt House"
 export default function Page() {
   return (
     <div className="print-root">
-      <style>{`@page { size: A4; margin: 0 }`}</style>
+      <style>{`@page { size: A4; margin: 0 } @media print { html, body { background: #fff !important } }`}</style>
       <div className="sheet pc-a4">
         {[0, 1, 2, 3].map((i) => (
           <div key={i}>

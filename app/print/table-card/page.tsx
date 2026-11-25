@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "Table card (A6) — Melt House", rob
 export default function Page() {
   return (
     <div className="print-root">
-      <style>{`@page { size: 105mm 148mm; margin: 0 }`}</style>
+      <style>{`@page { size: 105mm 148mm; margin: 0 } @media print { html, body { background: #efe0cc !important } }`}</style>
       <div className="sheet" style={{ width: "105mm" }}>
         <TableCard />
       </div>

@@ -19,13 +19,18 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
   overflow: hidden;
 }
+@page {
+  margin: 0;
+}
 @media print {
   /* exactly one sheet per page: no trailing blank page */
+  /* print the page colour too (browsers skip it by default), so the sheet edges never show white */
   html,
   body {
     height: auto !important;
     min-height: 0 !important;
-    background: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .print-root {
     background: none;
@@ -59,8 +64,8 @@
 }
 .pc-frame {
   height: 100%;
-  border: 0.35mm solid rgba(181, 121, 58, 0.75);
-  outline: 0.25mm solid rgba(181, 121, 58, 0.35);
+  border: 0.35mm solid #c48f55;
+  outline: 0.25mm solid #dfc4a0;
   outline-offset: -1.6mm;
   border-radius: 3mm;
   display: flex;
@@ -72,7 +77,7 @@
 .pc-heart {
   height: 10.5mm;
   width: auto;
-  filter: drop-shadow(0 0 1.8mm rgba(255, 170, 80, 0.75)) drop-shadow(0 0 5mm rgba(255, 160, 70, 0.4));
+  /* no filters/blur in print: phone PDF viewers draw them as grey smudges */
 }
 .pc-name {
   margin-top: 2mm;
@@ -117,7 +122,8 @@
   height: 15mm;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 0 0.6mm #fffaf3, 0 0 0 0.85mm rgba(181, 121, 58, 0.7), 0 1.5mm 3mm -1mm rgba(59, 36, 24, 0.4);
+  border: 0.6mm solid #fffaf3;
+  outline: 0.25mm solid #c9965c;
 }
 .pc-qr {
   margin-top: 2.8mm;
@@ -125,7 +131,7 @@
   padding: 2mm;
   border-radius: 3mm;
   background: #fffaf3;
-  box-shadow: 0 0 0 0.3mm rgba(181, 121, 58, 0.45), 0 3mm 6mm -3mm rgba(59, 36, 24, 0.35);
+  border: 0.3mm solid #d9b88f;
 }
 .pc-qr svg {
   display: block;
@@ -218,7 +224,7 @@
   width: 78mm;
   height: auto;
   border-radius: 2mm;
-  box-shadow: 0 3mm 6mm -3mm rgba(46, 27, 18, 0.45);
+
 }
 .pp-title {
   margin-top: 5mm;
@@ -255,7 +261,7 @@
   aspect-ratio: 4 / 5;
   border-radius: 999px 999px 2.5mm 2.5mm;
   overflow: hidden;
-  box-shadow: 0 0 0 0.35mm rgba(181, 121, 58, 0.6), 0 2.5mm 4mm -2mm rgba(59, 36, 24, 0.45);
+  border: 0.35mm solid #c9965c;
 }
 .pp-arches div.is-up {
   transform: translateY(-2.5mm);
@@ -270,7 +276,9 @@
   padding: 3.4mm 3.4mm 2.6mm;
   border-radius: 4mm;
   background: #fffaf3;
-  box-shadow: inset 0 0 0 0.35mm rgba(181, 121, 58, 0.7), inset 0 0 0 1.6mm #fffaf3, inset 0 0 0 1.85mm rgba(181, 121, 58, 0.3), 0 5mm 9mm -5mm rgba(46, 27, 18, 0.45);
+  border: 0.35mm solid #c9965c;
+  outline: 0.25mm solid #e3c9a6;
+  outline-offset: -1.6mm;
 }
 .pp-qr {
   width: 56mm;
@@ -331,3 +339,4 @@
   font-size: 2.8mm;
   letter-spacing: 0.04em;
 }
+
