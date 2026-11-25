@@ -1,6 +1,6 @@
 // npm run print [-- http://localhost:3000]
 // Saves the café's QR code and print PDFs into print/:
-//   menu-qr.svg · menu-qr.png (2400 px) · table-card-a6.pdf · table-cards-4-on-a4.pdf · counter-poster-a5.pdf
+//   menu-qr.svg · menu-qr.png (2400 px) · menu-qr-4000px.png/.jpg · menu-qr-plain-4000px.png · table-card-a6.pdf · table-cards-4-on-a4.pdf · counter-poster-a5.pdf
 // Needs the site running (npm run dev, or npm run build && npm start) and Chrome or Edge installed.
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
@@ -35,6 +35,16 @@ writeFileSync(join(out, "menu-qr.svg"), svg);
 await sharp(Buffer.from(svg), { density: 1200 }).resize(2400, 2400).png().toFile(join(out, "menu-qr.png"));
 console.log("✓ print/menu-qr.svg");
 console.log("✓ print/menu-qr.png (2400 × 2400 px)");
+// 4000 px versions on white: branded PNG + JPG, and a plain black-and-white one (safest for any printer)
+const big = sharp(Buffer.from(svg), { density: 2400 }).resize(4000, 4000).flatten({ background: "#ffffff" });
+await big.clone().png({ compressionLevel: 9 }).toFile(join(out, "menu-qr-4000px.png"));
+await big.clone().jpeg({ quality: 95 }).toFile(join(out, "menu-qr-4000px.jpg"));
+const url = svg.match(/QR code: ([^"]+)/)?.[1];
+if (url) {
+  const QRCode = (await import("qrcode")).default;
+  await QRCode.toFile(join(out, "menu-qr-plain-4000px.png"), url, { errorCorrectionLevel: "H", width: 4000, margin: 4, color: { dark: "#000000", light: "#ffffff" } });
+}
+console.log("✓ print/menu-qr-4000px.png · .jpg · menu-qr-plain-4000px.png");
 
 // 2 · the PDFs
 if (!browser) {

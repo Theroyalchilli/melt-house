@@ -1,17 +1,19 @@
 // Print designs for the café's one QR code (A6 table card, A5 counter / window poster).
 // Rendered as pages under /print/* and saved to PDF by `npm run print`.
 import { qrSvg } from "../qr";
-import { ORDER, photo } from "../menu";
+import { ORDER } from "../menu";
 
-const HEART = "/images/melt/brand/heart-cutout.webp";
+// small print-size JPEG/PNG copies keep the PDFs light (a few hundred KB) so they open on any phone or printer
+const HEART = "/images/melt/brand/heart-print.png";
+const printPhoto = (n: string) => `/images/melt/hd/${n}-print.jpg`;
 const SIGN = "/images/melt/brand/wordmark-sign.webp";
 const qr = () => qrSvg(ORDER.menuUrl, { logo: HEART }).svg;
 const CARD_PHOTOS = [
-  { src: photo("kunafa-waffle"), label: "Kunafa Waffle" },
-  { src: photo("kashmiri-chai"), label: "Kashmiri Chai" },
-  { src: photo("ruby-juice"), label: "Ruby Juice" },
+  { src: printPhoto("kunafa-waffle"), label: "Kunafa Waffle" },
+  { src: printPhoto("kashmiri-chai"), label: "Kashmiri Chai" },
+  { src: printPhoto("ruby-juice"), label: "Ruby Juice" },
 ];
-const POSTER_PHOTOS = ["savouries", "hot-drinks", "desserts", "cold-drinks"].map((n) => photo(n));
+const POSTER_PHOTOS = ["savouries", "hot-drinks", "desserts", "cold-drinks"].map(printPhoto);
 const shortUrl = ORDER.menuUrl.replace(/^https:\/\/(www\.)?/, "");
 
 /** A6 (105 × 148 mm) table card: the light sign wall, gold double frame, glowing chocolate heart, three signature photos, big QR on cream. */
