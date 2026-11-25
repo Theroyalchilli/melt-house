@@ -52,15 +52,15 @@
   width: 105mm;
   height: 148mm;
   padding: 4mm;
-  background: var(--cocoa);
-  background-image: radial-gradient(70% 45% at 50% 18%, rgba(224, 173, 102, 0.28), transparent 70%);
-  color: var(--cream);
+  background: linear-gradient(180deg, #ead5bb 0%, #f3e6d6 100%);
+  background-image: radial-gradient(70% 40% at 50% 16%, rgba(255, 206, 140, 0.6), transparent 70%), linear-gradient(180deg, #ead5bb 0%, #f3e6d6 100%);
+  color: #3b2418;
   position: relative;
 }
 .pc-frame {
   height: 100%;
-  border: 0.35mm solid rgba(224, 173, 102, 0.85);
-  outline: 0.25mm solid rgba(224, 173, 102, 0.4);
+  border: 0.35mm solid rgba(181, 121, 58, 0.75);
+  outline: 0.25mm solid rgba(181, 121, 58, 0.35);
   outline-offset: -1.6mm;
   border-radius: 3mm;
   display: flex;
@@ -72,7 +72,7 @@
 .pc-heart {
   height: 13mm;
   width: auto;
-  filter: brightness(1.75) saturate(1.15) drop-shadow(0 0 2.2mm rgba(255, 180, 95, 0.7));
+  filter: drop-shadow(0 0 1.8mm rgba(255, 170, 80, 0.75)) drop-shadow(0 0 5mm rgba(255, 160, 70, 0.4));
 }
 .pc-name {
   margin-top: 2.6mm;
@@ -86,7 +86,7 @@
   margin-top: 1.2mm;
   font-size: 2mm;
   letter-spacing: 0.34em;
-  color: var(--gold);
+  color: #8a5a2b;
   text-transform: uppercase;
 }
 .pc-script {
@@ -96,7 +96,7 @@
   font-weight: 500;
   font-size: 8.4mm;
   line-height: 1;
-  color: var(--gold-soft);
+  color: #8a5a2b;
 }
 .pc-qr {
   margin-top: 3.6mm;
@@ -104,6 +104,7 @@
   padding: 2mm;
   border-radius: 3mm;
   background: #fffaf3;
+  box-shadow: 0 0 0 0.3mm rgba(181, 121, 58, 0.45), 0 3mm 6mm -3mm rgba(59, 36, 24, 0.35);
 }
 .pc-qr svg {
   display: block;
@@ -128,8 +129,8 @@
   width: 4.2mm;
   height: 4.2mm;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--cocoa);
+  background: #3b2418;
+  color: #fff;
   font-size: 2.3mm;
 }
 .pc-pay {
@@ -137,12 +138,12 @@
   font-size: 2.4mm;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #e8d3bb;
+  color: #75553f;
 }
 .pc-url {
   margin-top: 1mm;
   font-size: 2.3mm;
-  color: var(--gold);
+  color: #8a5a2b;
 }
 
 /* A4 sheet with four A6 cards + cut marks */
@@ -224,8 +225,8 @@
   margin-top: 6mm;
   padding: 3.4mm 3.4mm 2.6mm;
   border-radius: 4mm;
-  background: var(--cocoa);
-  box-shadow: inset 0 0 0 0.35mm rgba(224, 173, 102, 0.8), inset 0 0 0 1.6mm var(--cocoa), inset 0 0 0 1.85mm rgba(224, 173, 102, 0.35), 0 5mm 9mm -5mm rgba(46, 27, 18, 0.6);
+  background: #fffaf3;
+  box-shadow: inset 0 0 0 0.35mm rgba(181, 121, 58, 0.7), inset 0 0 0 1.6mm #fffaf3, inset 0 0 0 1.85mm rgba(181, 121, 58, 0.3), 0 5mm 9mm -5mm rgba(46, 27, 18, 0.45);
 }
 .pp-qr {
   width: 78mm;
@@ -242,7 +243,7 @@
   margin-top: 2mm;
   font-size: 2.8mm;
   letter-spacing: 0.06em;
-  color: var(--gold);
+  color: #8a5a2b;
 }
 .pp-steps {
   margin-top: 7mm;

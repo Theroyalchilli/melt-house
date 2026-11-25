@@ -2,7 +2,7 @@ import Lines from "./Lines";
 import { brand, scan } from "../content";
 import { qrSvg } from "../qr";
 
-/** The QR moment: a table-tent card with the real, scannable code (the same one printed in the café) next to three steps. */
+/** The QR moment: a cream table-tent card (gold double rule) with the real, scannable code (the same one printed in the café) next to three steps. */
 export default function ScanToOrder() {
   const { svg } = qrSvg(scan.url, { logo: brand.heart });
   return (
@@ -17,13 +17,13 @@ export default function ScanToOrder() {
       <div className="container-x relative grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
         {/* table tent */}
         <div data-reveal className="relative mx-auto w-full max-w-[400px]">
-          <div className="relative rotate-[-3deg] rounded-[18px] bg-[var(--cocoa)] p-3 shadow-[0_50px_80px_-40px_rgba(46,27,18,0.75)] transition-transform duration-700 hover:rotate-0">
-            <div className="rounded-[10px] border border-[var(--gold)]/60 px-7 pt-7 pb-8 text-center text-[#f5ebe0]">
-              <img src={brand.heart} alt="" className="heart-lit mx-auto h-12 w-auto" />
+          <div className="relative rotate-[-3deg] rounded-[18px] bg-surface p-3 shadow-[0_50px_80px_-40px_rgba(46,27,18,0.6)] transition-transform duration-700 hover:rotate-0">
+            <div className="rounded-[10px] border border-[#b5793a]/55 bg-[radial-gradient(70%_40%_at_50%_12%,rgba(255,206,140,0.45),transparent_70%)] px-7 pt-7 pb-8 text-center text-fg outline outline-1 -outline-offset-[6px] outline-[#b5793a]/25">
+              <img src={brand.heart} alt="" className="heart-halo mx-auto h-12 w-auto" />
               <p className="mt-3 text-[15px] font-semibold tracking-[0.3em] uppercase">Melt House</p>
-              <p className="serif-i mt-1 text-[19px] text-[var(--gold-soft)]">Scan · Order · Enjoy</p>
-              <div className="mx-auto mt-5 w-full max-w-[260px] overflow-hidden rounded-[12px] bg-[#fffaf3] p-2" dangerouslySetInnerHTML={{ __html: svg }} />
-              <p className="mt-5 text-[12px] tracking-[0.12em] text-[#e8d3bb] uppercase">Pay at the counter</p>
+              <p className="serif-i mt-1 text-[19px] text-accent">Scan · Order · Enjoy</p>
+              <div className="mx-auto mt-5 w-full max-w-[260px] overflow-hidden rounded-[12px] border border-line bg-[#fffaf3] p-2" dangerouslySetInnerHTML={{ __html: svg }} />
+              <p className="mt-5 text-[12px] tracking-[0.12em] text-muted uppercase">Pay at the counter</p>
             </div>
           </div>
         </div>

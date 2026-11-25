@@ -8,7 +8,7 @@ const SIGN = "/images/melt/brand/wordmark-sign.webp";
 const qr = () => qrSvg(ORDER.menuUrl, { logo: HEART }).svg;
 const shortUrl = ORDER.menuUrl.replace(/^https:\/\/(www\.)?/, "");
 
-/** A6 (105 × 148 mm) table card: chocolate, gold double frame, lit heart, big QR on cream. */
+/** A6 (105 × 148 mm) table card: the light sign wall, gold double frame, glowing chocolate heart, big QR on cream. */
 export function TableCard() {
   return (
     <div className="pc-card">
@@ -36,7 +36,7 @@ export function TableCard() {
   );
 }
 
-/** A5 (148 × 210 mm) counter / window poster: cream paper, the lit sign, big QR in a chocolate card, three steps, hours band. */
+/** A5 (148 × 210 mm) counter / window poster: cream paper, the lit sign, big QR in a cream gold-ruled card, three steps, hours band. */
 export function Poster() {
   return (
     <div className="pp-sheet">

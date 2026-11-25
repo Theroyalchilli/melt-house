@@ -39,7 +39,7 @@ async function preloadAll() {
   await Promise.all([...urls.map(loadImage), document.fonts.ready]);
 }
 
-/** The backlit sign switching on: the drip heart flickers into a warm glow, MELT HOUSE spaces out, then the wall lifts. */
+/** The sign switching on, on its cream wall: the drip heart flickers into a golden halo, MELT HOUSE spaces out, then the wall lifts. */
 export default function CafeLoader({ heart }: { heart: string }) {
   const root = useRef<HTMLDivElement>(null);
   const heartEl = useRef<HTMLImageElement>(null);
@@ -64,7 +64,7 @@ export default function CafeLoader({ heart }: { heart: string }) {
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ paused: !!target });
-      tl.fromTo(heartEl.current, { opacity: 0, scale: 0.94, filter: "brightness(0.4) drop-shadow(0 0 0 rgba(255,180,95,0))" }, { opacity: 1, scale: 1, filter: "brightness(1) drop-shadow(0 0 36px rgba(255,180,95,0.7))", duration: 0.9, ease: "power2.out" }, 0.05)
+      tl.fromTo(heartEl.current, { opacity: 0, scale: 0.94, filter: "brightness(0.55) drop-shadow(0 0 0px rgba(255,170,80,0))" }, { opacity: 1, scale: 1, filter: "brightness(1) drop-shadow(0 0 34px rgba(255,170,80,0.85))", duration: 0.9, ease: "power2.out" }, 0.05)
         .fromTo(heartEl.current, { opacity: 1 }, { opacity: 0.55, duration: 0.06, yoyo: true, repeat: 3, ease: "none" }, 0.25) // the neon flicker
         .fromTo(word.current, { letterSpacing: "0.05em", opacity: 0 }, { letterSpacing: "0.32em", opacity: 1, duration: 0.9, ease: "power3.out" }, 0.45)
         .fromTo(line.current, { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power3.inOut" }, 0.7)
@@ -91,15 +91,15 @@ export default function CafeLoader({ heart }: { heart: string }) {
 
   if (gone) return null;
   return (
-    <div ref={root} aria-hidden className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-7 bg-[var(--cocoa)]">
-      <div className="absolute inset-0 bg-[radial-gradient(50%_45%_at_50%_45%,rgba(224,173,102,0.18),transparent_70%)]" />
+    <div ref={root} aria-hidden className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-7 bg-[var(--bg)]">
+      <div className="absolute inset-0 bg-[radial-gradient(46%_42%_at_50%_42%,rgba(255,206,140,0.55),transparent_70%),linear-gradient(180deg,#ead5bb,#f5ebe0)]" />
       <img ref={heartEl} src={heart} alt="" className="relative h-[24vh] w-auto" style={{ opacity: 0 }} />
       <div className="relative flex flex-col items-center gap-3">
-        <div ref={word} className="pl-[0.32em] text-[clamp(20px,2.4vw,30px)] font-semibold text-[#f5ebe0] uppercase" style={{ opacity: 0, letterSpacing: "0.32em" }}>
+        <div ref={word} className="pl-[0.32em] text-[clamp(20px,2.4vw,30px)] font-semibold text-fg uppercase" style={{ opacity: 0, letterSpacing: "0.32em" }}>
           Melt House
         </div>
-        <div ref={line} className="h-px w-[220px] origin-center bg-[var(--gold)]" style={{ transform: "scaleX(0)" }} />
-        <div className="text-[12px] font-medium tracking-[0.34em] text-[var(--gold)] uppercase">Café · Desserts · Drinks · Treats</div>
+        <div ref={line} className="h-px w-[220px] origin-center bg-[#b5793a]" style={{ transform: "scaleX(0)" }} />
+        <div className="text-[12px] font-medium tracking-[0.34em] text-accent uppercase">Café · Desserts · Drinks · Treats</div>
       </div>
     </div>
   );

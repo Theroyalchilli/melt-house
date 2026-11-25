@@ -6,7 +6,7 @@ import { onReveal } from "./CafeLoader";
 import { brand, nav } from "../content";
 import { ORDER } from "../menu";
 
-/** Full-width bar: transparent over the dark hero (cream text), turns into a cream bar once you scroll. Gold "Order now" → /menu. */
+/** Full-width bar: transparent over the light hero, a frosted cream bar once you scroll. Brown text, chocolate "Order now" → /menu. */
 export default function CafeNav() {
   const ref = useRef<HTMLElement>(null);
   const [solid, setSolid] = useState(false);
@@ -30,18 +30,17 @@ export default function CafeNav() {
     else window.__lenis?.start();
   }, [open]);
 
-  const dark = !solid; // over the hero
   return (
     <>
       <header
         ref={ref}
         className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,color] duration-500 ${
-          solid ? "bg-[color-mix(in_srgb,var(--bg)_92%,transparent)] text-fg shadow-[0_1px_0_var(--line)] backdrop-blur-md" : "text-[#f5ebe0]"
+          solid ? "bg-[color-mix(in_srgb,var(--bg)_92%,transparent)] text-fg shadow-[0_1px_0_var(--line)] backdrop-blur-md" : "text-fg"
         }`}
       >
         <div className="container-x flex h-[72px] items-center gap-6 md:h-[84px]">
           <a href="#" aria-label="Melt House, home" className="flex items-center gap-3">
-            <img src={brand.heart} alt="" width={40} height={44} className={`h-9 w-auto sm:h-10 transition-[filter] duration-500 ${dark ? "heart-lit" : ""}`} />
+            <img src={brand.heart} alt="" width={40} height={44} className="h-9 w-auto sm:h-10" />
             <span className="flex flex-col leading-none">
               <span className="text-[15px] font-semibold tracking-[0.16em] whitespace-nowrap uppercase sm:text-[17px] sm:tracking-[0.18em]">Melt House</span>
             </span>
@@ -55,7 +54,7 @@ export default function CafeNav() {
             ))}
           </nav>
           <div className="ml-auto flex items-center gap-2 lg:ml-4">
-            <a href={nav.cta.href} className={`btn !px-4 !py-2.5 text-[14px] whitespace-nowrap sm:!px-5 sm:!py-3 ${dark ? "btn-gold" : "btn-solid"}`}>
+            <a href={nav.cta.href} className={`btn !px-4 !py-2.5 text-[14px] whitespace-nowrap sm:!px-5 sm:!py-3 btn-solid`}>
               <span className="sm:hidden">Order</span>
               <span className="max-sm:hidden">{nav.cta.label}</span>
               <span aria-hidden>→</span>
@@ -70,10 +69,10 @@ export default function CafeNav() {
       </header>
 
       {open && (
-        <div className="on-dark fixed inset-0 z-[70] flex flex-col bg-[var(--cocoa)] text-[#f5ebe0]">
+        <div className="sign-wall fixed inset-0 z-[70] flex flex-col text-fg">
           <div className="flex items-center justify-between px-5 pt-4">
-            <img src={brand.heart} alt="" className="heart-lit h-10 w-auto" />
-            <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="grid h-11 w-11 place-items-center rounded-full border border-white/25">
+            <img src={brand.heart} alt="" className="heart-halo h-10 w-auto" />
+            <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="grid h-11 w-11 place-items-center rounded-full border border-[var(--text)]/20 bg-surface/60">
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
                 <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
               </svg>
@@ -85,11 +84,11 @@ export default function CafeNav() {
                 {l.label}
               </a>
             ))}
-            <a href={nav.cta.href} className="btn btn-gold mt-8 self-start">
+            <a href={nav.cta.href} className="btn btn-solid mt-8 self-start">
               Order from the menu →
             </a>
           </nav>
-          <p className="px-6 pb-8 text-[13px] leading-relaxed text-[#e8d3bb]">
+          <p className="px-6 pb-8 text-[13px] leading-relaxed text-muted">
             {ORDER.hours}
             <br />
             {ORDER.address}

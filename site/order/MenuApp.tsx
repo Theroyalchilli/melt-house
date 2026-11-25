@@ -200,11 +200,11 @@ export default function MenuApp() {
         <div className="mh-head-glow" aria-hidden />
         <a href="/" className="relative mx-auto flex w-fit flex-col items-center" aria-label="Melt House home">
           <img src={HEART} alt="" width={529} height={580} className="mh-heart" />
-          <span className="mt-4 pl-[0.34em] text-[22px] font-semibold tracking-[0.34em] text-[#f5ebe0] uppercase md:text-[26px]">Melt House</span>
-          <span className="mt-2 text-[12px] font-medium tracking-[0.34em] text-[var(--gold)] uppercase">Café · Desserts · Drinks · Treats</span>
+          <span className="mt-4 pl-[0.34em] text-[22px] font-semibold tracking-[0.34em] text-fg uppercase md:text-[26px]">Melt House</span>
+          <span className="mt-2 text-[12px] font-medium tracking-[0.34em] text-accent uppercase">Café · Desserts · Drinks · Treats</span>
         </a>
-        <p className="mh-italic relative mt-5 text-center text-[20px] !text-[#e8d3bb]">Freshly made. Beautifully served. Simply indulgent.</p>
-        <div className="relative mt-5 flex flex-wrap items-center justify-center gap-2 text-[12.5px] text-[#f5ebe0]">
+        <p className="mh-italic relative mt-5 text-center text-[20px]">Freshly made. Beautifully served. Simply indulgent.</p>
+        <div className="relative mt-5 flex flex-wrap items-center justify-center gap-2 text-[12.5px] font-medium text-fg">
           <span className="mh-pill">
             <span className="mh-live" />
             {ORDER.hours}
@@ -291,11 +291,11 @@ export default function MenuApp() {
                   <section key={s.id} id={s.id} className="mh-section">
                     <div className="mh-opener">
                       <div className="relative z-[1] min-w-0">
-                        <span className="tnum text-[12px] font-medium tracking-[0.2em] text-[var(--gold)]">
+                        <span className="tnum text-[12px] font-medium tracking-[0.2em] text-accent">
                           0{k + 1} / 0{menu.length}
                         </span>
                         <h2 className="mt-1 text-[clamp(26px,6.4vw,38px)] leading-[1.02] font-semibold">{s.name}</h2>
-                        <p className="mh-italic mt-1 text-[17px] !text-[#e8d3bb]">{SECTION_LINE[s.id]}</p>
+                        <p className="mh-italic mt-1 text-[17px]">{SECTION_LINE[s.id]}</p>
                       </div>
                       <div className="mh-opener-img">
                         <img src={s.image} alt="" loading="lazy" />

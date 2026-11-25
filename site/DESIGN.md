@@ -2,7 +2,7 @@
 
 **Brief:** Melt House is now a café, not only an ice-cream parlour: café · desserts · drinks · treats at 45 Kingsley Road, Hounslow TW3 1PA. This is the real business site (www.melthouse.co.uk), so it carries real prices and contact details and **no "concept website" note**. Source of truth for the menu: `MeltHouse-Menu-OneSheet.pdf` → `site/menu.ts`.
 
-**The idea in one line:** *a warm, lit-up café sign on a cream wall.* Cream paper, chocolate ink, caramel-gold glow, thin double rules, arched photo frames, dark-brown feature panels. It should feel like the printed menu sheet and the drip-heart sign.
+**The idea in one line:** *a warm, lit-up café sign on a cream wall.* **Light and warm (Nov 24 update):** ~85% cream/tan like the sign photo and paper menu; chocolate only for the two Offers panels, buttons, the order bar and the footer. Cream paper, chocolate ink, caramel-gold glow, thin double rules, arched photo frames, dark-brown feature panels. It should feel like the printed menu sheet and the drip-heart sign.
 
 ## Choices
 
@@ -16,20 +16,20 @@
 
 ## Homepage (built, Round 2)
 
-Night-café hero → cream page → chocolate bands, so the page alternates dark / light like the café at night.
+Light throughout (the client found the first version too dark): sign-wall hero, cream and tan sections, chocolate kept for the Offers panels and the footer.
 
 | # | Section | What it does |
 |---|---|---|
-| — | **Loader** `CafeLoader` | Dark wall; the drip heart flickers on like a neon sign, MELT HOUSE spaces out, gold line draws, the wall lifts (2.3 s, supports `&at=`) |
-| — | **Nav** `CafeNav` | Transparent over the hero (lit heart, cream text, gold "Order now"), cream bar after the hero. Phone: chocolate full-screen menu |
-| 1 | **Hero** `CafeHero` | "Freshly made. *Beautifully* served. Simply indulgent." beside the big backlit heart (breathing glow, floats). Four arched photos sit half on the dark wall, half on the cream page |
+| — | **Loader** `CafeLoader` | Cream sign wall; the drip heart flickers on like a neon sign, MELT HOUSE spaces out, gold line draws, the wall lifts (2.3 s, supports `&at=`) |
+| — | **Nav** `CafeNav` | Light from the first frame: brown logo + links, chocolate "Order now"; frosted cream bar after the hero. Phone: light sign-wall full-screen menu |
+| 1 | **Hero** `CafeHero` | "Freshly made. *Beautifully* served. Simply indulgent." on the cream-to-tan sign wall, beside the chocolate heart with a breathing golden halo. Four arched photos sit half on the wall, half on the cream page |
 | 2 | **Signatures** `Signatures` | Five paper cards with gold-ringed photo medallions, note, price, order arrow. Phone: swipe row |
-| 3 | **Ticker** `Ticker` | Chocolate band, favourites drifting in caps + gold italic, drip-heart separators |
+| 3 | **Ticker** `Ticker` | Caramel-tan strip, favourites drifting in brown caps + caramel italic, drip-heart separators |
 | 4 | **Five ways to melt** `MenuIndex` | Editorial index of the 5 menu sections with "from £" prices; an arch photo follows the active row; steps by itself on screen (filming); each row opens /menu at that section |
 | 5 | **Gelato** `GelatoBar` | Tan wall, pyramid of five scoop cut-outs (parallax), flavour chips, printed-menu price list with dotted leaders |
-| 6 | **Chai** `ChaiBand` | Chocolate band, gold-ringed chai + latte medallions with rising steam, MED / LARGE price card |
+| 6 | **Chai** `ChaiBand` | Light paper, gold-ringed chai + latte medallions with rising steam, MED / LARGE price card (cream, gold double rule) |
 | 7 | **Offers** `Offers` | Combos + Melt House Specials as gold double-ruled chocolate panels (same as the print) |
-| 8 | **Scan to order** `ScanToOrder` | A tilted table-tent card with the real QR (tested: decodes at 600 / 300 / 160 px) + 3 steps |
+| 8 | **Scan to order** `ScanToOrder` | A tilted cream table-tent card (gold double rule) with the real QR (tested: decodes at 600 / 300 / 160 px) + 3 steps |
 | 9 | **Visit** `VisitUs` | The lit sign, address / hours / email rows, directions + order buttons |
 | 10 | **Footer** `CafeFooter` | Breathing heart, giant spaced MELT HOUSE, links, contact, allergy note. No "concept" note (real business) |
 
@@ -37,8 +37,8 @@ Night-café hero → cream page → chocolate bands, so the page alternates dark
 
 Phone-first page with no engine (no loader, smooth scroll or animations), so it opens instantly from the QR.
 
-- Header: chocolate panel with the lit drip heart, MELT HOUSE, tagline, hours pill (`12 pm – 12 am`, not yet confirmed).
-- House favourites swipe row; each section opens with a chocolate banner + arch photo; pill tabs with thumbnails; dotted leaders to the price.
+- Header: light sign-wall panel with the haloed drip heart, MELT HOUSE, tagline, hours pill (`12 pm – 12 am`, not yet confirmed).
+- House favourites swipe row; each section opens with a light tan banner (gold hairline) + arch photo; pill tabs with thumbnails; dotted leaders to the price.
 - Laptop (≥1024 px): the order sits in a sticky panel beside the menu.
 - Sticky search + 5 section tabs (Savouries · Bakery & Gelato · Desserts · Hot Drinks · Cold Drinks).
 - Category headers with round photos cropped from the menu sheet (`public/images/melt/menu/`).
